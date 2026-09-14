@@ -9,6 +9,7 @@
   const BASE = window.DAA_CONFIG.API_BASE_URL;
   const TOKEN_KEY = 'daa_access_token';
   const USER_KEY = 'daa_user';
+  const MOCK_MODE = window.DAA_CONFIG.MOCK_MODE || false;
 
   function getToken() { return sessionStorage.getItem(TOKEN_KEY); }
   function setToken(t) { if (t) sessionStorage.setItem(TOKEN_KEY, t); }
@@ -22,7 +23,84 @@
   }
   function setUser(u) { sessionStorage.setItem(USER_KEY, JSON.stringify(u)); }
 
+  // Mock API responses for development without backend
+  const mockResponses = {
+    '/auth/register:POST': (body) => {
+      // Simulate successful registration
+      const rolePrefixes = { student: 'STU', guardian: 'GRD', teacher: 'STF', staff: 'STF' };
+      const prefix = rolePrefixes[body.role] || 'USR';
+      const timestamp = Date.now().toString().slice(-6);
+      const userCode = `${prefix}-${new Date().getFullYear()}-${timestamp}`;
+      
+      return {
+        success: true,
+        data: {
+          message: 'Account created successfully. Please log in with your credentials.',
+          user: {
+            id: Math.floor(Math.random() * 1000) + 1,
+            userCode: userCode,
+            email: body.email,
+            phone: body.phone,
+            role: body.role,
+          }
+        }
+      };
+    },
+    '/auth/login:POST': (body) => {
+      // Simulate login for demo purposes
+      const demoUsers = {
+        'SUPERADMIN-0001': { role: 'super_admin', userCode: 'SUPERADMIN-0001' },
+        'STF-DEMO-0001': { role: 'teacher', userCode: 'STF-DEMO-0001' },
+        'GRD-DEMO-0001': { role: 'guardian', userCode: 'GRD-DEMO-0001' },
+        'STU-DEMO-0001': { role: 'student', userCode: 'STU-DEMO-0001' },
+      };
+      
+      const user = demoUsers[body.identifier] || { 
+        role: 'student', 
+        userCode: body.identifier,
+        email: body.identifier.includes('@') ? body.identifier : null,
+        phone: !body.identifier.includes('@') ? body.identifier : null
+      };
+      
+      return {
+        success: true,
+        data: {
+          accessToken: 'mock_access_token_' + Date.now(),
+          refreshToken: 'mock_refresh_token_' + Date.now(),
+          user: {
+            id: 1,
+            userCode: user.userCode,
+            email: user.email,
+            phone: user.phone,
+            role: user.role,
+            mustChangePassword: false,
+          },
+          redirectTo: '/' + user.role
+        }
+      };
+    }
+  };
+
   async function raw(path, opts, isRetry) {
+    // Use mock mode if enabled and for supported endpoints
+    if (MOCK_MODE) {
+      const mockKey = `${path}:${opts.method || 'GET'}`;
+      if (mockResponses[mockKey]) {
+        await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+        const mockResponse = mockResponses[mockKey](opts.body);
+        if (mockResponse.success) {
+          return mockResponse.data;
+        } else {
+          const err = new Error(mockResponse.error?.message || 'Mock API error');
+          err.status = mockResponse.error?.status || 500;
+          throw err;
+        }
+      }
+      // For unsupported endpoints in mock mode, return empty data
+      console.warn(`Mock mode: endpoint ${mockKey} not implemented, returning null`);
+      return null;
+    }
+
     const res = await fetch(BASE + path, {
       method: opts.method || 'GET',
       headers: Object.assign(
@@ -68,6 +146,11 @@
   }
 
   async function tryRefresh() {
+    if (MOCK_MODE) {
+      // Mock refresh - just generate a new token
+      setToken('mock_access_token_' + Date.now());
+      return true;
+    }
     try {
       const res = await fetch(BASE + '/auth/refresh', {
         method: 'POST',
@@ -96,6 +179,10 @@
   // shares raw()'s auth/refresh-retry and { success, data, error } envelope
   // handling by delegating the actual send to the same 401-retry logic.
   async function upload(path, formData, method, isRetry) {
+    if (MOCK_MODE) {
+      console.warn('Mock mode: file upload not implemented');
+      return null;
+    }
     const res = await fetch(BASE + path, {
       method: method || 'POST',
       headers: getToken() ? { Authorization: 'Bearer ' + getToken() } : {},
@@ -138,6 +225,10 @@
       return data;
     },
     async logout() {
+      if (MOCK_MODE) {
+        clearSession();
+        return;
+      }
       try { await raw('/auth/logout', { method: 'POST' }); } catch (e) { /* ignore */ }
       clearSession();
     },

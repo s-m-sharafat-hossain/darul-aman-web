@@ -68,6 +68,10 @@
 
     <div class="auth-error" id="regError"></div>
     <div class="auth-success" id="regSuccess"></div>
+    <div class="auth-info" id="mockModeNotice" style="display: none; background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 12px; margin-bottom: 16px; font-size: 13px; color: #856404;">
+      <i class="fa-solid fa-info-circle me-2"></i>
+      <strong>Mock Mode Active:</strong> Running without backend server. Account creation will be simulated.
+    </div>
 
     <!-- Role Selection -->
     <div id="roleSelection">
@@ -284,6 +288,11 @@
 <script src="js/api.js"></script>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Show mock mode notice if active
+if (window.DAA_CONFIG && window.DAA_CONFIG.MOCK_MODE) {
+  document.getElementById('mockModeNotice').style.display = 'block';
+}
 
 // Role selection logic
 const roleCards = document.querySelectorAll('.role-card');

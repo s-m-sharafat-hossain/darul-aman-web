@@ -27,6 +27,10 @@
     </div>
 
     <div class="auth-error" id="loginError"></div>
+    <div class="auth-info" id="mockModeNotice" style="display: none; background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 12px; margin-bottom: 16px; font-size: 13px; color: #856404;">
+      <i class="fa-solid fa-info-circle me-2"></i>
+      <strong>Mock Mode Active:</strong> Running without backend server. Use demo credentials: SUPERADMIN-0001 / ChangeMe123!
+    </div>
 
     <form id="loginForm" novalidate>
       <div class="mb-3">
@@ -60,6 +64,21 @@
       </button>
     </form>
 
+    <div class="auth-options mt-3">
+      <div class="row g-2">
+        <div class="col-6">
+          <a href="register.html" class="btn btn-outline-success w-100">
+            <i class="fa-solid fa-user-plus me-1"></i> Create Account
+          </a>
+        </div>
+        <div class="col-6">
+          <a href="rules.html" class="btn btn-outline-info w-100">
+            <i class="fa-solid fa-book me-1"></i> Portal Rules
+          </a>
+        </div>
+      </div>
+    </div>
+
     <p class="text-center mt-4" style="font-size:12.5px;color:var(--muted);">
       &copy; <span id="year"></span> Darul Aman Academy — Secure portal access only.
     </p>
@@ -70,6 +89,11 @@
 <script src="js/api.js"></script>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Show mock mode notice if active
+if (window.DAA_CONFIG && window.DAA_CONFIG.MOCK_MODE) {
+  document.getElementById('mockModeNotice').style.display = 'block';
+}
 
 // If already logged in, bounce straight to the right dashboard.
 (function redirectIfLoggedIn(){

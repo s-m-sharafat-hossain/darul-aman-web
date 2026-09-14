@@ -4,11 +4,11 @@
  */
 window.DAA_CONFIG = {
   API_BASE_URL: (function () {
-    // Defaults to localhost:4000 (backend's default PORT) during local dev.
-    // On any other host, assumes the API is served at /api on the same domain.
-    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-      return 'http://localhost:4000/api';
-    }
-    return '/api';
+    // For development without backend, use mock mode
+    // When backend is running, change this to: 'http://localhost:4000/api'
+    return 'http://localhost:4000/api';
   })(),
+  
+  // Enable mock mode for testing without backend
+  MOCK_MODE: true,
 };
