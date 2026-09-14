@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Darul Aman Academy — Cox's Bazar | Islamic Education, Hifz & Academic Madrasa</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Darul Aman Academy, madrasa Cox's Bazar, Hifz ul Quran, Islamic education Bangladesh, Qaida Nazera, residential madrasa" name="keywords">
+    <meta content="Darul Aman Academy is a residential Islamic madrasa in Cox's Bazar offering Hifz-ul-Quran, Qaida, Nazera and full academic education for boys, with modern facilities and a caring learning environment." name="description">
+    <link rel="canonical" href="https://www.darulamanacademy-placeholder.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Darul Aman Academy — Cox's Bazar | Islamic Education, Hifz & Academic Madrasa">
+    <meta property="og:description" content="Darul Aman Academy is a residential Islamic madrasa in Cox's Bazar offering Hifz-ul-Quran, Qaida, Nazera and full academic education for boys, with modern facilities and a caring learning environment.">
+    <meta property="og:url" content="https://www.darulamanacademy-placeholder.com/">
+    <meta property="og:site_name" content="Darul Aman Academy">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Darul Aman Academy — Cox's Bazar | Islamic Education, Hifz & Academic Madrasa">
+    <meta name="twitter:description" content="Darul Aman Academy is a residential Islamic madrasa in Cox's Bazar offering Hifz-ul-Quran, Qaida, Nazera and full academic education for boys, with modern facilities and a caring learning environment.">
+
+
+    <!-- Favicon -->
+    <link href="Logo_icon/darulaman1.jpg" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Anek+Bangla:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&family=Satisfy&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/theme-lang.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    
+
+
+    <style>
+/* ================= HERO SLIDER CSS ================= */
+
+.header-carousel .item {
+    position: relative;
+    height: 650px;
+    overflow: hidden;
+}
+
+.header-carousel .item img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: transform 8s ease;
+}
+
+.header-carousel .owl-item.active .item img {
+    transform: scale(1);
+}
+
+/* Dark gradient overlay for readability */
+.header-carousel .item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 40, 30, 0.85) 0%,
+        rgba(0, 40, 30, 0.55) 45%,
+        rgba(0, 40, 30, 0.15) 100%
+    );
+    z-index: 1;
+}
+
+/* ---------- Hero Content (centered layout) ---------- */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 780px;
+    width: 90%;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-subtitle {
+    display: inline-block;
+    background: rgba(3, 108, 95, 0.55);
+    border: 1.5px solid #ffb703;
+    padding: 8px 26px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 22px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.hero-title {
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 22px;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+}
+
+/* Wrap the second line of the title in <span class="text-accent"> to color it,
+   e.g. "Excellence In <br><span class="text-accent">Education</span>" */
+.hero-title .text-accent {
+    background: linear-gradient(90deg, #a8d876, #6fbf6a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 auto 32px;
+    max-width: 620px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.hero-btn {
+    padding: 15px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.35s ease;
+    display: inline-block;
+    letter-spacing: 0.3px;
+}
+
+.hero-btn.primary {
+    background: linear-gradient(135deg, #ffc93c, #ffb703);
+    color: #1a1a1a;
+    box-shadow: 0 8px 20px rgba(255, 183, 3, 0.4);
+}
+
+.hero-btn.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(255, 183, 3, 0.55);
+    color: #1a1a1a;
+}
+
+.hero-btn.secondary {
+    background: rgba(3, 108, 95, 0.55);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.65);
+}
+
+.hero-btn.secondary:hover {
+    background: #fff;
+    color: #036c5f;
+    border-color: #fff;
+    transform: translateY(-4px);
+}
+
+/* ---------- Hero Card (floating info box, bottom-right) ---------- */
+.hero-card {
+    position: absolute;
+    bottom: 40px;
+    right: 6%;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px 26px;
+    max-width: 340px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    border: 2px solid #ffb703;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1s;
+}
+
+/* Icon circle: wrap an icon in <span class="hero-card-icon"><i class="fa fa-graduation-cap"></i></span>
+   right before the h4 inside .hero-card */
+.hero-card-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffb703;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.hero-card-text h4 {
+    color: #036c5f;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.hero-card-text p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ---------- Owl Carousel Nav & Dots ---------- */
+.header-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+    z-index: 3;
+}
+
+.header-carousel .owl-nav button {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background: #036c5f !important;
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    color: #fff !important;
+    font-size: 20px !important;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.header-carousel .owl-nav button:hover {
+    background: #ffb703 !important;
+    color: #1a1a1a !important;
+    border-color: #ffb703 !important;
+}
+
+.header-carousel .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+}
+
+.header-carousel .owl-dots .owl-dot span {
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.5);
+    display: block;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.header-carousel .owl-dots .owl-dot.active span {
+    background: #ffb703;
+    width: 28px;
+    border-radius: 6px;
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px) {
+    .header-carousel .item,
+    .header-carousel .item img {
+        height: 520px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-card {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .header-carousel .item,
+    .header-carousel .item img {
+        height: 420px;
+    }
+
+    .hero-content {
+        width: 92%;
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .hero-subtitle {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+
+    .hero-text {
+        font-size: 14px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .hero-btn {
+        text-align: center;
+        width: 100%;
+        padding: 13px 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .header-carousel .item,
+    .header-carousel .item img {
+        height: 380px;
+    }
+
+    .hero-title {
+        font-size: 22px;
+    }
+
+    .hero-text {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+}
+    /* ---------------------------------------------------------
+       6. ABOUT / WELCOME SECTION
+    ---------------------------------------------------------- */
+    section.color{
+        background: var(--green-soft);
+        position:relative;
+    }
+    .about-img{
+        border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px;
+        overflow:hidden;
+        box-shadow: var(--shadow-soft);
+        border:6px solid #fff;
+        position:relative;
+    }
+    section.color h1.display-6{
+        font-weight:800; font-size:2.1rem;
+        position:relative; padding-bottom:14px; margin-bottom:20px !important;
+    }
+    section.color h1.display-6::after{
+        content:'';
+        position:absolute; left:0; bottom:0; width:70px; height:4px;
+        background: var(--gold); border-radius:4px;
+    }
+    section.color p.bn{ color:var(--muted); font-size:1.03rem; }
+    section.color .btn-secondary{
+        background: var(--green); border:none; border-radius:50px;
+        padding:12px 28px; font-family:var(--font-display); font-weight:700;
+        box-shadow:0 12px 26px -10px rgba(15,122,86,.55);
+    }
+    section.color .btn-secondary:hover{ background:var(--green-deep); transform:translateY(-2px); }
+
+ 
+
+
+
+    /* ---------------------------------------------------------
+       8. QURAN DEPARTMENT SECTION
+    ---------------------------------------------------------- */
+    .quran-section{
+        background:
+            radial-gradient(circle at 15% 20%, rgba(199,151,43,.10), transparent 40%),
+            radial-gradient(circle at 85% 80%, rgba(15,122,86,.10), transparent 40%),
+            #fff;
+        position:relative;
+    }
+    .quran-section .banner{
+        background: linear-gradient(160deg, var(--green-deep), var(--green));
+        border-radius: var(--radius-lg);
+        padding:26px 22px;
+        color:#fff;
+        position:sticky; top:110px;
+        box-shadow: var(--shadow-soft);
+    }
+    .quran-section .banner .title{
+        font-family:var(--font-display); font-weight:800; font-size:1.25rem;
+        color:#fff; line-height:1.3;
+    }
+    .quran-section .banner .subtitle{
+        margin-top:14px; font-size:.92rem; color:#E7F1EC; line-height:1.9;
+    }
+    .service-item{
+        background:#fff;
+        border-radius: var(--radius-md);
+        padding:28px 22px;
+        text-align:center;
+        box-shadow:0 10px 26px -14px rgba(11,74,52,.22);
+        border:1px solid rgba(11,74,52,.08);
+        transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .service-item:hover{
+        transform:translateY(-8px);
+        box-shadow: var(--shadow-soft);
+    }
+    .service-item .btn-square{
+        width:74px; height:74px; border-radius:50%;
+        background: var(--green-soft) !important;
+        display:inline-flex; align-items:center; justify-content:center;
+        overflow:hidden;
+    }
+    .service-item .btn-square img{ border-radius:50%; }
+    .service-item h3{ font-size:1.2rem; margin-top:6px; }
+    .service-item h3 p{ display:inline; font-size:.85rem; color:var(--gold); font-family:var(--font-body); }
+    .service-item p.bn{ color:var(--muted); font-size:.92rem; }
+    .service-item > a{
+        display:inline-block; margin-top:8px;
+        color:var(--green); font-weight:700; font-size:.86rem;
+        border-bottom:2px solid var(--gold);
+    }
+    .service-item > a:hover{ color:var(--green-deep); }
+
+    /* ---------------------------------------------------------
+       9. VIDEO GALLERY
+    ---------------------------------------------------------- */
+    .video-section-title{
+        text-align:center; display:flex; align-items:center; justify-content:center;
+        gap:16px; margin-top:20px;
+        padding-inline: clamp(16px, 4vw, 32px);
+    }
+    .video-section-title h2{ font-size:2rem; margin:0; }
+    .video-icon-gold{
+        width:52px; height:2px; background:var(--gold); display:inline-block;
+        position:relative;
+    }
+    .video-icon-gold::before{
+        content:'✦'; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+        color:var(--gold); font-size:1rem; background:var(--cream); padding:0 6px;
+    }
+    .video-section-sub{
+        max-width:760px; margin:14px auto 34px; text-align:center;
+        color:var(--muted); font-size:1rem;
+        padding-inline: clamp(16px, 4vw, 32px);
+        box-sizing:border-box;
+    }
+    .premium-wrapper{
+        max-width:1200px; margin:0 auto 20px; padding-inline: clamp(16px, 4vw, 32px);
+        display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+        box-sizing:border-box;
+    }
+    .premium-card{
+        border-radius: var(--radius-lg);
+        overflow:hidden;
+        box-shadow: var(--shadow-soft);
+        background:#fff;
+        transition:transform .35s ease;
+    }
+    .premium-card:hover{ transform:translateY(-6px); }
+    .card-banner.thumbnail{ position:relative; aspect-ratio:16/10; overflow:hidden; }
+    .card-banner.thumbnail img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+    .premium-card:hover .card-banner.thumbnail img{ transform:scale(1.08); }
+    .promo-tag{
+        position:absolute; top:12px; left:12px;
+        background: var(--gold); color:#fff;
+        font-size:.68rem; font-weight:800; letter-spacing:.06em;
+        padding:4px 10px; border-radius:20px;
+    }
+    .card-content{ padding:20px; }
+    .promo-text{ font-size:.94rem; color:var(--ink); min-height:70px; }
+    .promo-footer{ display:flex; align-items:center; justify-content:space-between; margin-top:14px; }
+    .promo-play{
+        width:50px; height:50px; border-radius:50%;
+        background: linear-gradient(135deg, var(--green), var(--green-deep));
+        color:#fff; border:none; font-size:1.1rem;
+        box-shadow:0 10px 22px -8px rgba(15,122,86,.6);
+    }
+    .promo-play:hover{ filter:brightness(1.1); }
+    .scroll-down{ font-size:.78rem; color:var(--muted); font-weight:600; }
+
+    @media (max-width:900px){ .premium-wrapper{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:600px){ .premium-wrapper{ grid-template-columns:1fr; } }
+
+    /* ---------------------------------------------------------
+       10. EVENTS
+    ---------------------------------------------------------- */
+    .event-item{
+        background:#fff;
+        border-radius: var(--radius-lg);
+        box-shadow:0 10px 26px -14px rgba(11,74,52,.22);
+        transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .event-item:hover{ transform:translateY(-6px); box-shadow: var(--shadow-soft); }
+    .event-item img{ border-radius: var(--radius-md); }
+    .event-item h3{ font-size:1.15rem; margin-bottom:10px; }
+    .event-item .bg-light{ border-radius: var(--radius-md); background: var(--green-soft) !important; }
+
+    /* ---------------------------------------------------------
+       11. DONATION / PROJECTS
+    ---------------------------------------------------------- */
+    .donation-item{
+        background:#fff;
+        border-radius: var(--radius-lg);
+        box-shadow:0 10px 26px -14px rgba(11,74,52,.22);
+    }
+    .donation-progress{ width:90px; }
+    .donation-progress span{ font-weight:700; color:var(--green-deep); }
+    .progress{ background: var(--green-soft); border-radius:20px; width:14px !important; margin:0 auto; }
+    .progress-bar{ background: linear-gradient(180deg, var(--gold), var(--green)) !important; border-radius:20px; }
+    .donation-detail img{ border-radius: var(--radius-md); }
+    .donation-detail .btn-primary{
+        background: var(--green); border:none; border-radius:50px;
+        font-family:var(--font-display); font-weight:700;
+    }
+    .donation-detail .btn-primary:hover{ background: var(--green-deep); }
+    .donation-detail .btn-secondary{ background: var(--gold); border:none; border-radius:50px; }
+
+    /* ---------------------------------------------------------
+       12. TESTIMONIALS
+    ---------------------------------------------------------- */
+    .testimonial-title h6{ font-size:1.6rem; }
+    .testimonial-carousel .testimonial-item{
+        background:#fff; border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-soft); padding:34px;
+    }
+    .testimonial-img img{
+        border-radius: var(--radius-md);
+        box-shadow:0 14px 30px -14px rgba(11,74,52,.3);
+    }
+    .testimonial-text .fa-star{ color: var(--gold) !important; }
+    .btn-lg-square{
+        width:58px; height:58px; border-radius:50%;
+        background: var(--green-soft) !important; color: var(--green) !important;
+        display:flex; align-items:center; justify-content:center;
+    }
+
+    /* ---------------------------------------------------------
+       13. DEPARTMENTS (2-card overview)
+    ---------------------------------------------------------- */
+    .dept-cards{
+        display:grid; grid-template-columns:1fr 1fr; gap:30px;
+        max-width:1100px; margin:0 auto;
+    }
+    .dept-card{
+        background:#fff; border-radius: var(--radius-lg);
+        overflow:hidden; box-shadow: var(--shadow-soft);
+        border:1px solid rgba(11,74,52,.08);
+        display:flex; flex-direction:column;
+        transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .dept-card:hover{ transform:translateY(-8px); }
+    .dept-card-top{
+        padding:34px 30px 24px;
+        min-height:200px;
+        background: linear-gradient(160deg, rgba(4,57,39,.88), rgba(0,98,65,.88));
+        color:#fff; text-align:center; position:relative;
+        overflow:hidden;
+    }
+    .dept-card-top .thumb-bg{
+        position:absolute; inset:0; z-index:0;
+    }
+    .dept-card-top .thumb-bg img{
+        width:100%; height:100%; object-fit:cover; object-position:center;
+        opacity:.85; filter:saturate(1.05);
+    }
+    .dept-card-top .thumb-scrim{
+        position:absolute; inset:0; z-index:1;
+        background: linear-gradient(180deg, rgba(4,57,39,.35) 0%, rgba(4,57,39,.55) 45%, rgba(0,98,65,.92) 100%);
+    }
+    .dept-card-top > *{ position:relative; z-index:2; }
+    .dept-card-icon{
+        width:78px; height:78px; border-radius:50%;
+        background: rgba(255,255,255,.14); border:2px solid var(--gold);
+        display:flex; align-items:center; justify-content:center;
+        font-size:34px; margin:0 auto 16px;
+        backdrop-filter:blur(2px);
+    }
+    .dept-card-top h3{ font-family:var(--font-display); font-weight:800; font-size:1.5rem; margin-bottom:6px; color:#fff; }
+    .dept-card-top span{ color: var(--gold-light); font-size:.92rem; font-weight:600; }
+    .dept-card-body{ padding:26px 28px 30px; flex:1; display:flex; flex-direction:column; }
+    .dept-card-body p{ color:var(--muted); font-size:.96rem; line-height:1.8; flex:1; }
+    .dept-card-body .btn-view-detail{
+        align-self:flex-start; margin-top:14px;
+        background: var(--green); color:#fff; border:none;
+        padding:11px 28px; border-radius:50px; font-weight:700; font-size:.9rem;
+        text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+        transition:background .3s ease, transform .3s ease;
+    }
+    .dept-card-body .btn-view-detail:hover{ background:var(--green-deep); color:#fff; transform:translateX(3px); }
+    .dept-card-body .btn-view-detail i{ font-size:.8rem; }
+
+    @media (max-width:768px){
+        .dept-cards{ grid-template-columns:1fr; }
+    }
+
+    /* ---------------------------------------------------------
+       14. HOMEPAGE PREVIEW GRID (students / teachers)
+    ---------------------------------------------------------- */
+    .preview-section-head{ text-align:center; max-width:640px; margin:0 auto 40px; }
+    .preview-section-head p.section-title{ display:inline-block; }
+    .preview-section-head h2{ font-size:1.9rem; font-weight:800; margin-bottom:10px; }
+    .preview-section-head span.eng{ color:var(--muted); font-size:.95rem; }
+
+    .mini-card-grid{
+        display:grid; grid-template-columns:repeat(4, 1fr); gap:24px;
+        max-width:1200px; margin:0 auto 36px;
+    }
+    .student-mini-card{
+        background:#fff; border-radius: var(--radius-md); text-align:center;
+        padding:32px 18px 26px; box-shadow:0 10px 26px -14px rgba(11,74,52,.22);
+        border:1px solid rgba(11,74,52,.08);
+        transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .student-mini-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-soft); }
+    .student-mini-card .photo-circle{
+        width:92px; height:92px; border-radius:50%; margin:0 auto 16px;
+        overflow:hidden; border:3px solid var(--gold-light);
+        box-shadow:0 8px 18px -8px rgba(11,74,52,.35);
+    }
+    .student-mini-card .photo-circle img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
+    .student-mini-card h5{ font-size:1.02rem; font-weight:800; margin-bottom:4px; }
+    .student-mini-card .eng-sub{ font-size:.78rem; color:var(--gold); font-weight:700; display:block; margin-bottom:8px; }
+    .student-mini-card p{ color:var(--muted); font-size:.87rem; margin:0; }
+
+    .teacher-mini-card{
+        background:#fff; border-radius: var(--radius-md); text-align:center;
+        padding:32px 18px 26px; box-shadow:0 10px 26px -14px rgba(11,74,52,.22);
+        border:1px solid rgba(11,74,52,.08);
+        transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .teacher-mini-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-soft); }
+    .teacher-mini-card .photo-circle{
+        width:110px; height:110px; border-radius:50%; margin:0 auto 16px;
+        overflow:hidden; border:3px solid var(--gold);
+        box-shadow:0 8px 18px -8px rgba(11,74,52,.35);
+    }
+    .teacher-mini-card .photo-circle img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
+    .teacher-mini-card h5{ font-size:1rem; font-weight:800; margin-bottom:4px; }
+    .teacher-mini-card .role{ font-size:.8rem; color:var(--gold); font-weight:700; }
+
+    .preview-view-all{ text-align:center; margin-bottom:100px; }
+    .preview-view-all .btn-view-detail{
+        background: var(--green); color:#fff; border:none;
+        padding:12px 34px; border-radius:50px; font-weight:700; font-size:.92rem;
+        text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+        transition:background .3s ease, transform .3s ease;
+    }
+    .preview-view-all .btn-view-detail:hover{ background:var(--green-deep); transform:translateY(-3px); color:#fff; }
+
+    @media (max-width:991px){ .mini-card-grid{ grid-template-columns:repeat(2, 1fr); } }
+    @media (max-width:480px){ .mini-card-grid{ grid-template-columns:1fr; } }
+
+    /* ---------------------------------------------------------
+       15. SUCCESS STORIES — compact flashy cards
+    ---------------------------------------------------------- */
+    .success-mini-grid{
+        display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;
+        max-width:1200px; margin:0 auto;
+    }
+    .success-mini-card{
+        background:#fff; border-radius: var(--radius-md); overflow:hidden;
+        box-shadow:0 10px 26px -14px rgba(11,74,52,.22);
+        border:1px solid rgba(11,74,52,.08);
+        display:flex; align-items:center; gap:14px; padding:14px;
+        transition:transform .3s ease, box-shadow .3s ease;
+        position:relative;
+    }
+    .success-mini-card:hover{ transform:translateY(-5px) scale(1.01); box-shadow: var(--shadow-soft); }
+    .success-mini-card .s-thumb{
+        flex:0 0 74px; width:74px; height:74px; border-radius:14px; overflow:hidden;
+        position:relative;
+    }
+    .success-mini-card .s-thumb img{ width:100%; height:100%; object-fit:cover; }
+    .success-mini-card .s-badge{
+        position:absolute; top:-8px; right:-8px;
+        background: var(--gold); color:#fff; font-size:.6rem; font-weight:800;
+        padding:3px 7px; border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,.2);
+    }
+    .success-mini-card .s-body{ flex:1; min-width:0; }
+    .success-mini-card h5{ font-size:.96rem; font-weight:800; margin-bottom:4px; color:var(--green-deep); }
+    .success-mini-card p{ font-size:.8rem; color:var(--muted); margin:0 0 4px; line-height:1.5; }
+    .success-mini-card .s-meta{ font-size:.72rem; color:var(--gold); font-weight:700; }
+    .success-mini-card .s-meta i{ margin-right:4px; }
+
+    @media (max-width:900px){ .success-mini-grid{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px){ .success-mini-grid{ grid-template-columns:1fr; } }
+
+    /* ---------------------------------------------------------
+       15b. RECENT PHOTOS (Home Page) — CMS-driven, no hardcoded images.
+       Cards are built entirely by js/main.js's fetch of
+       GET /api/gallery/recent — see the script block near the footer.
+    ---------------------------------------------------------- */
+    #recentPhotosSection{ display:none; } /* shown by JS once photos load successfully — spec: hide gracefully if none/error */
+    .recent-photos-grid{
+        display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;
+        max-width:1200px; margin:0 auto 36px;
+    }
+    .recent-photo-card{
+        position:relative;
+        border-radius: var(--radius-md);
+        overflow:hidden;
+        aspect-ratio: 4/3;
+        background: var(--green-soft);
+        box-shadow:0 10px 24px -14px rgba(11,74,52,.28);
+        border:1px solid rgba(11,74,52,.08);
+        transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .recent-photo-card:hover{ transform:translateY(-4px); box-shadow: var(--shadow-soft); }
+    .recent-photo-card img{
+        width:100%; height:100%; object-fit:cover; display:block;
+        transition:transform .5s ease;
+    }
+    .recent-photo-card:hover img{ transform:scale(1.06); }
+    .recent-photo-card .rp-overlay{
+        position:absolute; inset:0;
+        background: linear-gradient(180deg, rgba(4,57,39,0) 45%, rgba(4,57,39,.85) 100%);
+        display:flex; align-items:flex-end;
+        padding:14px;
+        opacity:0; transition:opacity .3s ease;
+    }
+    .recent-photo-card:hover .rp-overlay{ opacity:1; }
+    .recent-photo-card .rp-title{ color:#fff; font-weight:800; font-size:.88rem; margin:0 0 2px; line-height:1.3; }
+    .recent-photo-card .rp-meta{ color: var(--gold-light); font-size:.7rem; font-weight:700; }
+    .recent-photo-card .rp-badge{
+        position:absolute; top:10px; left:10px;
+        background: rgba(255,255,255,.92); color: var(--green-deep);
+        font-size:.62rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em;
+        padding:3px 9px; border-radius:50px;
+    }
+    .recent-photos-skel{
+        border-radius: var(--radius-md); aspect-ratio:4/3;
+        background: linear-gradient(90deg,#EFEDE6 25%,#F7F5EE 37%,#EFEDE6 63%);
+        background-size:400% 100%;
+        animation: recent-photos-skel-anim 1.4s ease infinite;
+    }
+    @keyframes recent-photos-skel-anim{ 0%{background-position:100% 50%;} 100%{background-position:0 50%;} }
+
+    @media (max-width:900px){ .recent-photos-grid{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px){ .recent-photos-grid{ grid-template-columns:1fr; } }
+
+    /* ---------------------------------------------------------
+       16. PARENT TESTIMONIALS
+    ---------------------------------------------------------- */
+    .parent-grid{
+        display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;
+        max-width:1200px; margin:0 auto;
+    }
+    .parent-card{
+        background:#fff; border-radius: var(--radius-lg);
+        box-shadow:0 10px 26px -14px rgba(11,74,52,.22);
+        border:1px solid rgba(11,74,52,.08);
+        padding:28px 26px; position:relative;
+        transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .parent-card:hover{ transform:translateY(-6px); box-shadow: var(--shadow-soft); }
+    .parent-card .quote-mark{
+        font-size:2.4rem; color: var(--green-soft); font-family:Georgia, serif;
+        line-height:1; margin-bottom:6px; display:block;
+    }
+    .parent-card .stars{ color:var(--gold); font-size:.8rem; margin-bottom:12px; }
+    .parent-card p.quote{ color:var(--ink); font-size:.94rem; line-height:1.8; margin-bottom:20px; min-height:110px; }
+    .parent-card .parent-id{ display:flex; align-items:center; gap:12px; border-top:1px dashed rgba(11,74,52,.15); padding-top:16px; }
+    .parent-card .parent-avatar{
+        width:46px; height:46px; border-radius:50%;
+        background: var(--green-soft); color:var(--green-deep);
+        display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0;
+    }
+    .parent-card .parent-name{ font-weight:800; font-size:.94rem; margin-bottom:2px; }
+    .parent-card .parent-role{ font-size:.78rem; color:var(--gold); font-weight:700; }
+
+    @media (max-width:900px){ .parent-grid{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px){ .parent-grid{ grid-template-columns:1fr; } }
+
+    /* ---------------------------------------------------------
+       17. DIRECTOR MESSAGE (home page)
+    ---------------------------------------------------------- */
+    .director-message-section{
+        background: radial-gradient(1100px 460px at 50% 0%, var(--green-soft), transparent 65%), var(--cream);
+        padding: 90px 0 70px;
+    }
+    .dm-card{
+        position:relative;
+        display:grid;
+        grid-template-columns: 380px 1fr;
+        gap:0;
+        background: linear-gradient(180deg, #fff, var(--cream));
+        border-radius: 28px;
+        overflow:hidden;
+        box-shadow: 0 30px 70px -30px rgba(4,57,39,.35);
+        border:1px solid rgba(199,151,43,.18);
+    }
+    .dm-card::after{
+        content:"";
+        position:absolute; inset:0;
+        background: radial-gradient(360px 220px at 96% 106%, rgba(199,151,43,.10), transparent 70%);
+        pointer-events:none;
+    }
+    .dm-photo-wrap{
+        position:relative;
+        background: var(--green-deep);
+        padding: 34px 30px 70px;
+        display:flex;
+        align-items:flex-start;
+        justify-content:center;
+    }
+    .dm-photo{
+        position:relative;
+        z-index:1;
+        width:100%;
+        max-width:300px;
+        aspect-ratio: 3/4;
+        object-fit:cover;
+        object-position: top center;
+        border: 4px solid var(--gold);
+        border-radius: 24px 130px 24px 24px;
+        box-shadow: 0 20px 40px rgba(0,0,0,.35);
+    }
+    .dm-seal{
+        position:absolute;
+        z-index:2;
+        top:14px; right:14px;
+        width:64px; height:64px;
+        border-radius:50%;
+        background:#fff;
+        border:3px solid #fff;
+        box-shadow:0 10px 22px rgba(0,0,0,.3);
+        object-fit:contain;
+        padding:4px;
+    }
+    .dm-quote-ribbon{
+        position:absolute;
+        z-index:3;
+        left:22px; right:22px; bottom:0;
+        transform: translateY(50%);
+        background: var(--green-deep);
+        border:1px solid rgba(255,255,255,.14);
+        border-radius:16px;
+        padding:16px 18px 14px;
+        box-shadow: 0 18px 34px rgba(0,0,0,.35);
+    }
+    .dm-quote-ribbon i{ color: var(--gold); font-size:1.1rem; margin-bottom:6px; display:block; }
+    .dm-quote-text{ color:#fff; font-size:.86rem; line-height:1.7; margin:0 0 6px; }
+    .dm-quote-source{ color: var(--gold-light); font-size:.76rem; font-weight:600; display:block; }
+
+    .dm-content{
+        position:relative;
+        z-index:1;
+        padding: 44px 46px 40px 66px;
+    }
+    .dm-bismillah{
+        text-align:center;
+        font-family: var(--font-eng, var(--font-display));
+        font-size:1.5rem;
+        color: var(--green-deep);
+        margin-bottom:10px;
+        direction: rtl;
+    }
+    .dm-divider{
+        width:70px; height:3px; margin:0 auto 26px;
+        background: var(--gold); border-radius:3px;
+    }
+    .dm-greeting{
+        font-weight:800;
+        color: var(--green-deep);
+        font-size:1.25rem;
+        margin-bottom:14px;
+    }
+    .dm-message p{
+        color: var(--muted);
+        font-size:.95rem;
+        line-height:1.95;
+        margin:0 0 14px;
+    }
+    .dm-signature-row{
+        display:flex;
+        align-items:flex-end;
+        flex-wrap:wrap;
+        gap:18px;
+        margin-top:26px;
+        padding-top:22px;
+        border-top:1px dashed var(--da-line, #e7ddc2);
+    }
+    .dm-signature{ height:60px; width:auto; opacity:.92; }
+    .dm-signature-meta{ display:flex; flex-direction:column; margin-right:auto; }
+    .dm-signature-meta strong{ color: var(--green-deep); font-size:1rem; }
+    .dm-signature-meta .dm-role{ color: var(--gold); font-weight:700; font-size:.82rem; margin-top:2px; }
+    .dm-signature-meta .dm-subtitle{ color: var(--muted); font-size:.78rem; }
+    .dm-readmore{
+        display:inline-flex; align-items:center; gap:8px;
+        background: var(--green-deep); color:#fff;
+        padding:10px 20px; border-radius:999px;
+        font-size:.82rem; font-weight:700;
+        transition: background .25s ease, transform .25s ease;
+        white-space:nowrap;
+    }
+    .dm-readmore:hover{ background: var(--gold); color: var(--green-deep); transform:translateY(-2px); }
+
+    /* Our Commitment strip */
+    .dm-commitment{ margin-top:60px; text-align:center; }
+    .dm-commitment-badge{
+        display:inline-block;
+        background: var(--green-deep);
+        color: var(--gold-light);
+        font-weight:700;
+        font-size:.78rem;
+        letter-spacing:1.5px;
+        text-transform:uppercase;
+        padding:10px 26px;
+        border-radius:999px;
+        margin-bottom:40px;
+    }
+    .dm-commitment-grid{
+        display:grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap:20px;
+    }
+    .dm-commit-item{ text-align:center; padding:0 6px; }
+    .dm-commit-icon{
+        width:64px; height:64px; margin:0 auto 14px;
+        border-radius:50%;
+        background: var(--gold-light);
+        color: var(--green-deep);
+        display:flex; align-items:center; justify-content:center;
+        font-size:1.3rem;
+    }
+    .dm-commit-item h4{
+        font-size:.92rem; font-weight:800; color: var(--green-deep); margin:0 0 4px;
+    }
+    .dm-commit-eng{ display:block; font-size:.7rem; color: var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.4px; margin-bottom:8px; }
+    .dm-commit-item p{ font-size:.78rem; color: var(--muted); line-height:1.6; margin:0; }
+
+    @media (max-width:991px){
+        .dm-card{ grid-template-columns:1fr; }
+        .dm-photo-wrap{ padding:34px 30px 90px; }
+        .dm-content{ padding:52px 30px 36px; }
+        .dm-commitment-grid{ grid-template-columns:repeat(3, 1fr); row-gap:32px; }
+    }
+    @media (max-width:560px){
+        .dm-commitment-grid{ grid-template-columns:repeat(2, 1fr); }
+        .dm-signature-row{ align-items:flex-start; }
+        .dm-readmore{ margin-top:6px; }
+    }
+
+    /* ---------------------------------------------------------
+       18. TEACHERS CAROUSEL (home page — upgraded cards)
+    ---------------------------------------------------------- */
+    .tc-wrap{ position:relative; padding:0 56px; }
+    .tc-track{
+        display:grid;
+        grid-auto-flow:column;
+        grid-auto-columns: 264px;
+        gap:22px;
+        overflow-x:auto;
+        scroll-behavior:smooth;
+        padding:8px 4px 20px;
+        scrollbar-width:none;
+    }
+    .tc-track::-webkit-scrollbar{ display:none; }
+    .tc-card{
+        position:relative;
+        background:#fff;
+        border-radius: var(--radius-lg);
+        overflow:hidden;
+        box-shadow:0 16px 36px -20px rgba(4,57,39,.35);
+        border:1px solid rgba(4,57,39,.08);
+        transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .tc-card:hover{ transform:translateY(-6px); box-shadow: var(--shadow-soft); }
+    .tc-photo{ position:relative; height:210px; overflow:hidden; }
+    .tc-photo img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
+    .tc-featured{
+        position:absolute; top:49px; left:-12px; width:150px;
+        background: var(--gold);
+        color: var(--green-deep);
+        font-size:.66rem; font-weight:800; letter-spacing:.5px;
+        padding:5px 0;
+        text-align:center;
+        transform:rotate(-45deg);
+        box-shadow:0 4px 10px rgba(0,0,0,.25);
+    }
+    .tc-subject{
+        position:absolute; left:12px; bottom:12px;
+        background: rgba(4,57,39,.85);
+        color:#fff; font-size:.72rem; font-weight:700;
+        padding:5px 12px; border-radius:999px;
+        display:flex; align-items:center; gap:6px;
+    }
+    .tc-body{ padding:16px 18px 18px; }
+    .tc-body h5{ font-size:.98rem; font-weight:800; color: var(--green-deep); margin:0 0 3px; }
+    .tc-role{ display:block; font-size:.74rem; color: var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.3px; margin-bottom:8px; }
+    .tc-bio{ font-size:.78rem; color: var(--muted); line-height:1.6; margin:0 0 14px; min-height:38px; }
+    .tc-stats{ display:flex; justify-content:space-between; border-top:1px dashed rgba(4,57,39,.15); padding-top:12px; gap:6px; }
+    .tc-stat{ text-align:center; flex:1; min-width:0; }
+    .tc-stat i{ color: var(--gold); font-size:.85rem; display:block; margin-bottom:3px; }
+    .tc-stat .tc-num{ display:block; font-size:.72rem; font-weight:800; color: var(--green-deep); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .tc-stat .tc-lbl{ display:block; font-size:.62rem; color: var(--muted); text-transform:uppercase; letter-spacing:.2px; }
+
+    .tc-arrow{
+        position:absolute; top:50%; transform:translateY(-50%);
+        width:44px; height:44px; border-radius:50%;
+        background: var(--green-deep); color:#fff;
+        display:flex; align-items:center; justify-content:center;
+        border:none; cursor:pointer; z-index:2;
+        box-shadow:0 10px 24px -8px rgba(4,57,39,.5);
+        transition: background .25s ease, transform .25s ease;
+    }
+    .tc-arrow:hover{ background: var(--gold); color: var(--green-deep); }
+    .tc-arrow.prev{ left:0; }
+    .tc-arrow.next{ right:0; }
+
+    @media (max-width:600px){
+        .tc-wrap{ padding:0 8px; }
+        .tc-arrow{ display:none; }
+    }
+
+    /* ---------------------------------------------------------
+       19. STUDENTS SHOWCASE (home page — upgraded cards)
+    ---------------------------------------------------------- */
+    .sc-section{
+        background: linear-gradient(315deg, #093d39, #001f33);        padding:80px 0;
+        position:relative;
+        overflow:hidden;
+    }
+    .sc-section::before{
+        content:"";
+        position:absolute; inset:0;
+        background-size: 26px 26px;
+        background-position: 0 0, 13px 13px;
+        opacity:.6;
+    }
+    .sc-section .preview-section-head{ position:relative; }
+    .sc-section .preview-section-head h2{ color:#fff; }
+    .sc-section .preview-section-head span.eng{ color: var(--gold-light); }
+    .sc-section .preview-section-head p.section-title{ background: transparent !important; color: var(--gold) !important; }
+    .sc-grid{
+        position:relative;
+        display:grid;
+        grid-template-columns:repeat(4, 1fr);
+        gap:26px;
+    }
+    .sc-card{
+        background: rgba(255,255,255,.06);
+        border:1px solid rgba(255,255,255,.12);
+        border-radius: var(--radius-lg);
+        padding:28px 20px 24px;
+        text-align:center;
+        backdrop-filter: blur(6px);
+        transition:transform .3s ease, background .3s ease;
+    }
+    .sc-card:hover{ transform:translateY(-6px); background: rgba(255,255,255,.1); }
+    .sc-photo-wrap{ position:relative; width:104px; height:104px; margin:0 auto 16px; }
+    .sc-photo-wrap img{
+        width:100%; height:100%; border-radius:50%; object-fit:cover;
+        border:3px solid var(--gold);
+        box-shadow:0 0 0 5px rgba(199,151,43,.2);
+    }
+    .sc-badge{
+        position:absolute; bottom:-4px; right:-4px;
+        width:32px; height:32px; border-radius:50%;
+        background: var(--gold); color: var(--green-deep);
+        display:flex; align-items:center; justify-content:center;
+        font-size:.8rem; border:2px solid var(--green-deep);
+    }
+    .sc-card h5{ color:#fff; font-size:1rem; font-weight:800; margin:0 0 3px; }
+    .sc-eng-sub{ display:block; color: var(--gold-light); font-size:.76rem; font-weight:700; margin-bottom:10px; }
+    .sc-card p{ color: rgba(255,255,255,.72); font-size:.82rem; line-height:1.6; margin:0; }
+
+    @media (max-width:991px){ .sc-grid{ grid-template-columns:repeat(2, 1fr); } }
+    @media (max-width:480px){ .sc-grid{ grid-template-columns:1fr; } }
+
+    </style>
+    <script src="js/theme-lang.js"></script>
+
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "School",
+      "name": "Darul Aman Academy",
+      "url": "https://www.darulamanacademy-placeholder.com/",
+      "description": "Darul Aman Academy is a residential Islamic madrasa in Cox's Bazar offering Hifz-ul-Quran, Qaida, Nazera and full academic education for boys, with modern facilities and a caring learning environment.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cox's Bazar",
+        "addressCountry": "BD"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+      <!--========================
+    SITE HEADER START
+=========================-->
+
+<header class="site-header" id="siteHeader">
+
+    <!--========================
+        TOPBAR START
+    =========================-->
+    <div class="topbar" role="complementary" aria-label="Contact information">
+        <div class="topbar-inner">
+            <div class="topbar-left">
+                <span class="topbar-item topbar-address">
+                    <i class="fas fa-location-dot" aria-hidden="true"></i>
+                    <span>South Sahittika Palli, Darul Aman Road, B.G.B Camp, Ward No. 06, Cox's Bazar</span>
+                </span>
+            </div>
+            <div class="topbar-center">
+                <a class="topbar-item topbar-phone" href="tel:+8801729872581">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
+                    <span>+8801729-872581</span>
+                </a>
+                <a class="topbar-item topbar-email" href="mailto:darulaman.cox@gmail.com">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <span>darulaman.cox@gmail.com</span>
+                </a>
+            </div>
+            <div class="topbar-social" aria-label="Social media links">
+                <a href="https://www.facebook.com/share/1841wpaZLF/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://youtube.com/@darulamanacademycoxsbazar6018?si=EyEjNEqusB40VPPH" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--========================
+        TOPBAR END
+    =========================-->
+
+    <div class="site-header-container">
+
+        <div class="header-bar">
+
+            <a href="index.html" class="header-logo" aria-label="Darul Aman Academy — Home">
+                <img src="Logo_icon/L-2.svg" alt="Darul Aman Academy Logo">
+            </a>
+
+            <div class="header-brand">
+                <span class="header-brand-name">Darul Aman Academy</span>
+                <span class="header-brand-sub"><i class="header-brand-dot" aria-hidden="true"></i>Cox's Bazar<i class="header-brand-dot" aria-hidden="true"></i></span>
+            </div>
+
+            <span class="header-mobile-title">Darul Aman Academy Cox's Bazar</span>
+
+            <nav class="header-menu-wrap" id="headerMenuWrap" aria-label="Main navigation">
+
+                <ul class="header-menu">
+
+                    <li>
+                        <a href="index.html" data-page="index.html"><i class="fas fa-house" aria-hidden="true"></i>Home</a>
+                    </li>
+
+                    <li>
+                        <a href="director_zone.html" data-page="director_zone.html"><i class="fas fa-user-tie" aria-hidden="true"></i>Director Zone</a>
+                    </li>
+
+                    <li>
+                        <a href="teaching_garden.html" data-page="teaching_garden.html"><i class="fas fa-seedling" aria-hidden="true"></i>Teaching Garden</a>
+                    </li>
+
+                    <!-- Students -->
+                    <li class="has-submenu">
+                        <a href="#" class="submenu-toggle" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-graduate" aria-hidden="true"></i>Students <i class="fas fa-chevron-down submenu-caret" aria-hidden="true"></i></a>
+                        <ul class="header-submenu">
+                            <li><a href="admission.html" data-page="admission.html"><i class="fas fa-user-plus" aria-hidden="true"></i>Admission</a></li>
+                            <li><a href="student-fees.html" data-page="student-fees.html"><i class="fas fa-money-bill-wave" aria-hidden="true"></i>Student Fees</a></li>
+                            <li><a href="residential.html" data-page="residential.html"><i class="fas fa-house-user" aria-hidden="true"></i>Residential</a></li>
+                            <li><a href="activities.html" data-page="activities.html"><i class="fas fa-people-group" aria-hidden="true"></i>Activities</a></li>
+                            <li><a href="rules.html" data-page="rules.html"><i class="fas fa-scale-balanced" aria-hidden="true"></i>Rules</a></li>
+                            <li><a href="exam_result.html" data-page="exam_result.html"><i class="fas fa-file-lines" aria-hidden="true"></i>Exam Result</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Learning Garden -->
+                    <li class="has-submenu">
+                        <a href="#" class="submenu-toggle" aria-haspopup="true" aria-expanded="false"><i class="fas fa-book-quran" aria-hidden="true"></i>Learning Garden <i class="fas fa-chevron-down submenu-caret" aria-hidden="true"></i></a>
+                        <ul class="header-submenu">
+                            <li><a href="tahfiz_department.html" data-page="tahfiz_department.html"><i class="fas fa-book-open" aria-hidden="true"></i>Tahfiz</a></li>
+                            <li><a href="academic_department.html" data-page="academic_department.html"><i class="fas fa-graduation-cap" aria-hidden="true"></i>Academic</a></li>
+                            <li><a href="best_student.html" data-page="best_student.html"><i class="fas fa-star" aria-hidden="true"></i>Best Students</a></li>
+                            <li><a href="ex_student.html" data-page="ex_student.html"><i class="fas fa-user-graduate" aria-hidden="true"></i>Ex Students</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Madrasah Details -->
+                    <li class="has-submenu">
+                        <a href="#" class="submenu-toggle" aria-haspopup="true" aria-expanded="false"><i class="fas fa-mosque" aria-hidden="true"></i>Madrasah Details <i class="fas fa-chevron-down submenu-caret" aria-hidden="true"></i></a>
+                        <ul class="header-submenu">
+                            <li><a href="about.html" data-page="about.html"><i class="fas fa-circle-info" aria-hidden="true"></i>About Us</a></li>
+                            <li><a href="history.html" data-page="history.html"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i>History</a></li>
+                            <li><a href="curriculum.html" data-page="curriculum.html"><i class="fas fa-book" aria-hidden="true"></i>Curriculum</a></li>
+                            <li><a href="trust-activities.html" data-page="trust-activities.html"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i>Trust Activities</a></li>
+                            <li><a href="gallery.html" data-page="gallery.html"><i class="fas fa-images" aria-hidden="true"></i>Gallery</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="donation.html" data-page="donation.html"><i class="fas fa-heart" aria-hidden="true"></i>Donation</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html" data-page="contact.html"><i class="fas fa-phone" aria-hidden="true"></i>Contact</a>
+                    </li>
+
+                    <li class="header-menu-mobile-login">
+                        <a href="portal/login.html"><i class="fas fa-lock" aria-hidden="true"></i> Portal Login</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <a href="portal/login.html" class="header-login-btn">
+                <i class="fas fa-lock" aria-hidden="true"></i>
+                <span>Login</span>
+            </a>
+
+            <button type="button" class="header-toggle" id="headerToggle" aria-label="Open menu" aria-expanded="false" aria-controls="headerMenuWrap">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!--========================
+    SITE HEADER END
+=========================-->
+
+
+<!-- <div class="geo-divider"></div> -->
+
+
+ <!-- ================= HERO SLIDER START ================= -->
+
+<div class="container-fluid p-0">
+
+    <div class="owl-carousel header-carousel">
+
+        <!-- Slide 1 -->
+        <div class="item">
+
+            <img src="img/DA 01.png" class="img-fluid" alt="">
+
+            <div class="hero-content">
+
+                <span class="hero-subtitle">
+                    Welcome To Darul Aman Academy
+                </span>
+
+                <h1 class="hero-title">
+                    A Complete Journey <br>
+                    <span class="text-accent">Of Deen & Dunya</span>
+                </h1>
+
+                <p class="hero-text">
+                    We provide Islamic Education together with Modern Academic
+                    Excellence to build future leaders with strong character,
+                    knowledge and faith.
+                </p>
+
+                <div class="hero-btns">
+
+                    <a href="about.html" class="hero-btn primary">
+                        Explore More
+                    </a>
+
+                    <a href="admission.html" class="hero-btn secondary">
+                        Admission
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-card">
+
+                <span class="hero-card-icon"><i class="fa fa-door-open"></i></span>
+
+                <div class="hero-card-text">
+
+                    <h4>Admissions Open</h4>
+
+                    <p>
+                        Join Darul Aman Academy and start your beautiful
+                        educational journey today.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Slide 2 -->
+
+        <div class="item">
+
+            <img src="img/Slide-1.jpeg" class="img-fluid" alt="">
+
+            <div class="hero-content">
+
+                <span class="hero-subtitle">
+                    Islamic & Modern Education
+                </span>
+
+                <h1 class="hero-title">
+                    Excellence In <br>
+                    <span class="text-accent">Education</span>
+                </h1>
+
+                <p class="hero-text">
+                    Our mission is to nurture every student with Islamic values,
+                    leadership qualities and academic excellence.
+                </p>
+
+                <div class="hero-btns">
+
+                    <a href="teaching_garden.html" class="hero-btn primary">
+                        Our Teachers
+                    </a>
+
+                    <a href="contact.html" class="hero-btn secondary">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-card">
+
+                <span class="hero-card-icon"><i class="fa fa-graduation-cap"></i></span>
+
+                <div class="hero-card-text">
+
+                    <h4>Qualified Teachers</h4>
+
+                    <p>
+                        Experienced Islamic Scholars &
+                        Professional Academic Teachers.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Slide 3 -->
+
+        <div class="item">
+
+            <img src="img/DA 01.png" class="img-fluid" alt="">
+
+            <div class="hero-content">
+
+                <span class="hero-subtitle">
+                    Future Leaders
+                </span>
+
+                <h1 class="hero-title">
+                    Build Bright <br>
+                    <span class="text-accent">Future Today</span>
+                </h1>
+
+                <p class="hero-text">
+                    Education, Discipline, Morality and Leadership—
+                    Everything under one campus.
+                </p>
+
+                <div class="hero-btns">
+
+                    <a href="gallery.html" class="hero-btn primary">
+                        Gallery
+                    </a>
+
+                    <a href="donation.html" class="hero-btn secondary">
+                        Donate Now
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-card">
+
+                <span class="hero-card-icon"><i class="fa fa-building"></i></span>
+
+                <div class="hero-card-text">
+
+                    <h4>Modern Campus</h4>
+
+                    <p>
+                        Safe Environment,
+                        Smart Classrooms &
+                        Quality Learning.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= HERO SLIDER END ================= -->
+
+
+<link rel="stylesheet" href="lib/owlcarousel/assets/owl.carousel.min.css">
+
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <!-- Video Modal Start -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 16:9 aspect ratio -->
+                    <div class="ratio ratio-16x9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
+                            allowscriptaccess="always" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Modal End -->
+
+    <!-- Director Message Start -->
+    <section class="director-message-section" id="directorMessage">
+        <div class="container">
+            <div class="preview-section-head">
+                <p class="eng">DIRECTOR MESSAGE</p>
+                <h2 class="bn">পরিচালকের বাণী</h2>
+                <span class="eng">A Message from Our Director</span>
+            </div>
+
+            <div class="dm-card wow fadeIn" data-wow-delay="0.1s" id="daaDirectorHomeCard"></div>
+
+            <div class="dm-commitment">
+                <span class="dm-commitment-badge eng">OUR COMMITMENT</span>
+                <div class="dm-commitment-grid" id="daaCommitmentGrid"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Director Message End -->
+
+
+
+<div class="container-new single-col">
+
+    <!-- Notice Board -->
+    <div class="notice-board">
+        <div class="notice-header"><span class="notice-star">✦</span><span class="bn">নোটিশ বোর্ড</span></div>
+        <div class="notice-body">
+            <div class="notice-list" id="noticeList">
+
+                <a href="#" class="notice-item is-new">
+                    <div class="notice-date"><strong>05</strong><span>Jan</span></div>
+                    <div class="notice-content">
+                        <span class="notice-tag tag-event">ইভেন্ট</span>
+                        <p class="notice-text bn">সাংস্কৃতিক সপ্তাহ ২০২৬</p>
+                        <span class="notice-link">নোটিশ দেখুন <i>→</i></span>
+                    </div>
+                </a>
+
+                <a href="#" class="notice-item">
+                    <div class="notice-date"><strong>04</strong><span>Jan</span></div>
+                    <div class="notice-content">
+                        <span class="notice-tag tag-result">ফলাফল</span>
+                        <p class="notice-text">Admission Test Result 2026</p>
+                        <span class="notice-link">View Notice <i>→</i></span>
+                    </div>
+                </a>
+
+                <a href="#" class="notice-item">
+                    <div class="notice-date"><strong>03</strong><span>Jan</span></div>
+                    <div class="notice-content">
+                        <span class="notice-tag tag-exam">পরীক্ষা</span>
+                        <p class="notice-text bn">বার্ষিক পরীক্ষা সময়সূচি</p>
+                        <span class="notice-link">নোটিশ দেখুন <i>→</i></span>
+                    </div>
+                </a>
+
+                <a href="#" class="notice-item">
+                    <div class="notice-date"><strong>02</strong><span>Jan</span></div>
+                    <div class="notice-content">
+                        <span class="notice-tag tag-admission">ভর্তি</span>
+                        <p class="notice-text bn">ভর্তি ফর্ম বিতরণ শুরু</p>
+                        <span class="notice-link">নোটিশ দেখুন <i>→</i></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+
+    <!-- Departments Start -->
+    <section class="quran-section">
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="preview-section-head">
+                    <p class="section-title bg-white text-center text-primary px-3 bn">বিভাগ সমূহ</p>
+                    <h2 class="bn">আমাদের শিক্ষা বিভাগ</h2>
+                    <span class="eng">Our Departments</span>
+                </div>
+                <div class="dept-cards">
+
+                    <!-- Quranic Department Card -->
+                    <div class="dept-card wow fadeIn" data-wow-delay="0.1s">
+                        <div class="dept-card-top">
+                            <div class="thumb-bg"><img src="img-students/others/hifz_Department_for_boys.jpg" alt="Quranic Department"></div>
+                            <div class="thumb-scrim"></div>
+                            <div class="dept-card-icon">📖</div>
+                            <h3 class="bn">কুরআনিক বিভাগ</h3>
+                            <span class="eng">Quranic Department</span>
+                        </div>
+                        <div class="dept-card-body">
+                            <p class="bn">কায়েদা, আমপারা, নাযেরা ও হিফযুল কুরআন — প্লে-গ্রুপ থেকে শুরু করে অভিজ্ঞ ও
+                                নিবেদিতপ্রাণ শিক্ষকদের তত্ত্বাবধানে সঠিক তাজবীদসহ সম্পূর্ণ কুরআন মুখস্থ ও তিলাওয়াতের
+                                সুশৃঙ্খল ধারাবাহিক শিক্ষাক্রম।</p>
+                            <a href="tahfiz_department.html" class="btn-view-detail">বিস্তারিত <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Academic Department Card -->
+                    <div class="dept-card wow fadeIn" data-wow-delay="0.3s">
+                        <div class="dept-card-top">
+                            <div class="thumb-bg"><img src="img-students/others/Academic_Department.jpg" alt="Academic Department"></div>
+                            <div class="thumb-scrim"></div>
+                            <div class="dept-card-icon">🎓</div>
+                            <h3 class="bn">একাডেমিক বিভাগ</h3>
+                            <span class="eng">Academic Department</span>
+                        </div>
+                        <div class="dept-card-body">
+                            <p class="bn">নূরানী থেকে আলিম পর্যন্ত বালক ও বালিকা উভয় বিভাগে আধুনিক পাঠ্যক্রম, দক্ষ
+                                শিক্ষক মণ্ডলী ও নিয়মিত মূল্যায়নের মাধ্যমে দ্বীন ও দুনিয়ার জ্ঞানে সমৃদ্ধ প্রজন্ম গড়ে
+                                তোলার লক্ষ্যে সাজানো একাডেমিক কারিকুলাম।</p>
+                            <a href="academic_department.html" class="btn-view-detail">বিস্তারিত <i class="fa fa-arrow-right"></i></a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Departments End -->
+
+    <!-- Teachers Preview Start -->
+    <section class="quran-section">
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="preview-section-head">
+                    <p class="section-title bg-white text-center text-primary px-3 bn">শিক্ষক</p>
+                    <h2 class="bn">আমাদের শিক্ষক মণ্ডলী</h2>
+                    <span class="eng">Experienced, Qualified &amp; Dedicated Educators</span>
+                </div>
+
+                <div class="tc-wrap">
+                    <button type="button" class="tc-arrow prev" aria-label="Previous teacher" onclick="document.getElementById('tcTrack').scrollBy({left:-284, behavior:'smooth'})"><i class="fa fa-chevron-left"></i></button>
+                    <button type="button" class="tc-arrow next" aria-label="Next teacher" onclick="document.getElementById('tcTrack').scrollBy({left:284, behavior:'smooth'})"><i class="fa fa-chevron-right"></i></button>
+
+                    <div class="tc-track" id="tcTrack">
+
+                        <div class="tc-card wow fadeIn" data-wow-delay="0.1s">
+                            <div class="tc-photo">
+                                <span class="tc-featured eng">Featured</span>
+                                <img src="img/teachers & stap photo/Jamal-new.jpg" alt="Hafez Maulana Jamal Uddin">
+                                <span class="tc-subject eng"><i class="fa-solid fa-book-quran"></i> Quranic Dept.</span>
+                            </div>
+                            <div class="tc-body">
+                                <h5 class="eng">Hafez Maulana Jamal Uddin</h5>
+                                <span class="tc-role eng">Director, Quranic Department</span>
+                                <p class="tc-bio eng">18 years of dedicated Hifz &amp; Madrasah leadership.</p>
+                                <div class="tc-stats">
+                                    <div class="tc-stat"><i class="fa-solid fa-graduation-cap"></i><span class="tc-num">18+</span><span class="tc-lbl">Years Exp</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-certificate"></i><span class="tc-num">Hafez, Mln.</span><span class="tc-lbl">Qualification</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-landmark"></i><span class="tc-num">Hathazari</span><span class="tc-lbl">Institution</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tc-card wow fadeIn" data-wow-delay="0.15s">
+                            <div class="tc-photo">
+                                <img src="img/teachers & stap photo/sayedul-amin.jpg" alt="Hafez Maulana Sayeedul Amin">
+                                <span class="tc-subject eng"><i class="fa-solid fa-book-quran"></i> Quranic Dept.</span>
+                            </div>
+                            <div class="tc-body">
+                                <h5 class="eng">Hafez Maulana Sayeedul Amin</h5>
+                                <span class="tc-role eng">Senior Teacher, Quranic Department</span>
+                                <p class="tc-bio eng">Trained in Quran recitation &amp; Hifz mentorship.</p>
+                                <div class="tc-stats">
+                                    <div class="tc-stat"><i class="fa-solid fa-graduation-cap"></i><span class="tc-num">6+</span><span class="tc-lbl">Years Exp</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-certificate"></i><span class="tc-num">Hafez, Mln.</span><span class="tc-lbl">Qualification</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-landmark"></i><span class="tc-num">Patia</span><span class="tc-lbl">Institution</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tc-card wow fadeIn" data-wow-delay="0.2s">
+                            <div class="tc-photo">
+                                <img src="img/teachers & stap photo/sofiullah.jpg" alt="Hafez Maulana Shafiullah">
+                                <span class="tc-subject eng"><i class="fa-solid fa-book-quran"></i> Quranic Dept.</span>
+                            </div>
+                            <div class="tc-body">
+                                <h5 class="eng">Hafez Maulana Shafiullah</h5>
+                                <span class="tc-role eng">Hifz &amp; Arabic Teacher</span>
+                                <p class="tc-bio eng">Trained in Quran recitation, 10 years of service.</p>
+                                <div class="tc-stats">
+                                    <div class="tc-stat"><i class="fa-solid fa-graduation-cap"></i><span class="tc-num">10+</span><span class="tc-lbl">Years Exp</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-certificate"></i><span class="tc-num">Hafez, Mln.</span><span class="tc-lbl">Qualification</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-landmark"></i><span class="tc-num">Patia</span><span class="tc-lbl">Institution</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tc-card wow fadeIn" data-wow-delay="0.25s">
+                            <div class="tc-photo">
+                                <img src="img/teachers & stap photo/aziz-madani.jpg" alt="H. Mln. Azizur Rahman Madani">
+                                <span class="tc-subject eng"><i class="fa-solid fa-book-quran"></i> Quranic Dept.</span>
+                            </div>
+                            <div class="tc-body">
+                                <h5 class="eng">H. Mln. Azizur Rahman Madani</h5>
+                                <span class="tc-role eng">Hifz &amp; Arabic Teacher</span>
+                                <p class="tc-bio eng">Dedicated Hifz &amp; Arabic instruction for boys.</p>
+                                <div class="tc-stats">
+                                    <div class="tc-stat"><i class="fa-solid fa-graduation-cap"></i><span class="tc-num">8+</span><span class="tc-lbl">Years Exp</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-certificate"></i><span class="tc-num">Hafez, Mln.</span><span class="tc-lbl">Qualification</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-landmark"></i><span class="tc-num">Patia</span><span class="tc-lbl">Institution</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tc-card wow fadeIn" data-wow-delay="0.3s">
+                            <div class="tc-photo">
+                                <img src="img/teachers & stap photo/mostaqim.jpg" alt="Hafez Maulana Mustakim Habib">
+                                <span class="tc-subject eng"><i class="fa-solid fa-book-quran"></i> Quranic Dept.</span>
+                            </div>
+                            <div class="tc-body">
+                                <h5 class="eng">Hafez Maulana Mustakim Habib</h5>
+                                <span class="tc-role eng">Assistant, Nazera Department</span>
+                                <p class="tc-bio eng">Trained in Quran recitation for young learners.</p>
+                                <div class="tc-stats">
+                                    <div class="tc-stat"><i class="fa-solid fa-graduation-cap"></i><span class="tc-num">5+</span><span class="tc-lbl">Years Exp</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-certificate"></i><span class="tc-num">Hafez, Mln.</span><span class="tc-lbl">Qualification</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-landmark"></i><span class="tc-num">Fatickchari</span><span class="tc-lbl">Institution</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tc-card wow fadeIn" data-wow-delay="0.35s">
+                            <div class="tc-photo">
+                                <img src="img/teachers & stap photo/Tawsif.jpg" alt="Maulana Tawsif Mahmud">
+                                <span class="tc-subject eng"><i class="fa-solid fa-laptop-code"></i> IT &amp; Admin</span>
+                            </div>
+                            <div class="tc-body">
+                                <h5 class="eng">Maulana Tawsif Mahmud</h5>
+                                <span class="tc-role eng">IT Director &amp; Accountant</span>
+                                <p class="tc-bio eng">Manages IT systems, media &amp; office administration.</p>
+                                <div class="tc-stats">
+                                    <div class="tc-stat"><i class="fa-solid fa-graduation-cap"></i><span class="tc-num">7+</span><span class="tc-lbl">Years Exp</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-certificate"></i><span class="tc-num">Diploma CST</span><span class="tc-lbl">Qualification</span></div>
+                                    <div class="tc-stat"><i class="fa-solid fa-landmark"></i><span class="tc-num">Cox's Bazar</span><span class="tc-lbl">Institution</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="preview-view-all">
+                    <a href="teaching_garden.html" class="btn-view-detail eng"><i class="fa fa-chalkboard-user"></i> View All Teachers <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Teachers Preview End -->
+
+    <!-- Students Preview Start -->
+    <section class="sc-section">
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="preview-section-head">
+                    <p class="section-title bg-white text-center text-primary px-3 bn">শিক্ষার্থী</p>
+                    <h2 class="bn">আমাদের শিক্ষার্থী</h2>
+                    <span class="eng">Proud Achievements, Bright Futures</span>
+                </div>
+
+                <div class="sc-grid">
+                    <div class="sc-card wow fadeIn" data-wow-delay="0.1s">
+                        <div class="sc-photo-wrap">
+                            <img src="img/profile.png" alt="Huffaz Student">
+                            <span class="sc-badge"><i class="fa-solid fa-book-quran"></i></span>
+                        </div>
+                        <h5 class="bn">হাফেজ শিক্ষার্থী</h5>
+                        <span class="sc-eng-sub eng">Huffaz</span>
+                        <p class="bn">সম্পূর্ণ কুরআন মুখস্থকারী শিক্ষার্থীরা</p>
+                    </div>
+                    <div class="sc-card wow fadeIn" data-wow-delay="0.2s">
+                        <div class="sc-photo-wrap">
+                            <img src="img/profile.png" alt="Academic Topper Student">
+                            <span class="sc-badge"><i class="fa-solid fa-trophy"></i></span>
+                        </div>
+                        <h5 class="bn">একাডেমিক সেরা</h5>
+                        <span class="sc-eng-sub eng">Academic Toppers</span>
+                        <p class="bn">বার্ষিক পরীক্ষায় সর্বোচ্চ ফলাফলকারী</p>
+                    </div>
+                    <div class="sc-card wow fadeIn" data-wow-delay="0.3s">
+                        <div class="sc-photo-wrap">
+                            <img src="img/profile.png" alt="Competition Winner Student">
+                            <span class="sc-badge"><i class="fa-solid fa-microphone"></i></span>
+                        </div>
+                        <h5 class="bn">প্রতিযোগিতা বিজয়ী</h5>
+                        <span class="sc-eng-sub eng">Competition Winners</span>
+                        <p class="bn">তিলাওয়াত ও হিফজ প্রতিযোগিতায় বিজয়ী</p>
+                    </div>
+                    <div class="sc-card wow fadeIn" data-wow-delay="0.4s">
+                        <div class="sc-photo-wrap">
+                            <img src="img/profile.png" alt="Best Attendance Student">
+                            <span class="sc-badge"><i class="fa-solid fa-star"></i></span>
+                        </div>
+                        <h5 class="bn">সেরা উপস্থিতি ও শৃঙ্খলা</h5>
+                        <span class="sc-eng-sub eng">Best Attendance</span>
+                        <p class="bn">নিয়মিত উপস্থিতি ও উত্তম আচরণের জন্য</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="preview-view-all">
+                    <a href="best_student.html" class="btn-view-detail eng"><i class="fa fa-user-graduate"></i> View All Students <i class="fa fa-arrow-right"></i></a>
+                </div>
+                
+    <!-- Students Preview End -->
+
+    <section class="quran-section">
+        <div class="video-section-title gold">
+            <span class="video-icon-gold bn"></span>
+            <h2 class="bn">আমাদের ভিডিও গ্যালারি</h2>
+            <span class="video-icon-gold"></span>
+        </div>
+
+        <p class="video-section-sub bn">
+            দারুল আমান একাডেমি কক্সবাজার এর প্রতিষ্ঠা-ইতিহাস,ঐতিহ্য, উন্নয়ন, অগ্রগতি ও
+            শিক্ষার্থীদের অর্জন, সাংস্কৃতিক আয়োজন,
+            প্রতিযোগিতা, উন্নয়ন প্রকল্প, অবিস্মরণীয় মুহূর্তগুলো ও অনুপ্রেরণামূলক সব বাছাইকৃত ভিডিও উপভোগ করুন।
+        </p>
+        <!-- Video Cards Start -->
+
+        <div class="premium-wrapper">
+
+            <!-- Card 1 -->
+            <div class="premium-card">
+                <div class="card-inner">
+
+                    <!-- Thumbnail -->
+                    <div class="card-banner thumbnail">
+                        <img src="Poster_img/kafela.jpg" alt="Video Thumbnail">
+                        <span class="promo-tag">VIDEO</span>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="promo-text bn">
+                            দারুল আমান একাডেমির ইতিহাস, উন্নয়ন, অর্জন অবদান সবকিছু এক ভিডিয়ো ডকুমেন্টারিতে দেখে নিন
+                        </p>
+
+                        <div class="promo-footer">
+                            <a href="https://youtu.be/SF_433jpZ1A" target="_blank">
+                                <button class="promo-play">►</button>
+                            </a>
+                            <div class="scroll-down">Scroll Down</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="premium-card">
+                <div class="card-inner">
+
+                    <!-- Thumbnail -->
+                    <div class="card-banner thumbnail">
+                        <img src="Poster_img/song.jpg" alt="Video Thumbnail">
+                        <span class="promo-tag">VIDEO</span>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="promo-text bn">
+                            দারুল আমান প্রাক্তন ছাত্রদের নির্মাণে দারুল আমান একাডেমি'র 'থিমসং' দেখতে ভিডিয়ো আইকনে ক্লিক
+                            করুন!
+                        </p>
+
+                        <div class="promo-footer">
+                            <a href="https://youtu.be/SF_433jpZ1A" target="_blank">
+                                <button class="promo-play">►</button>
+                            </a>
+                            <div class="scroll-down">Scroll Down</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="premium-card">
+                <div class="card-inner">
+
+                    <!-- Thumbnail -->
+                    <div class="card-banner thumbnail">
+                        <img src="Poster_img/kafela.jpg" alt="Video Thumbnail">
+                        <span class="promo-tag">VIDEO</span>
+                    </div>
+
+                    <div class="card-content">
+                        <p class="promo-text bn">
+                            দারুল আমানের প্রাণস্পন্দন — দারুল আমান প্রাক্তন ছাত্র কাফেলার 'থিমসং' দেখতে ভিডিয়ো আইকনে
+                            ক্লিক করুন।
+                        </p>
+
+                        <div class="promo-footer">
+                            <a href="https://youtu.be/44exhj88YVY?si=3r9fj5htQj_74jyt" target="_blank">
+                                <button class="promo-play">►</button>
+                            </a>
+                            <div class="scroll-down">Scroll Down</div>
+                        </div>
+                    </div>
+                </div>
+                  
+            </div>
+
+        </div>
+        <!-- Video Cards Start -->
+
+        <!-- Success Stories Start -->
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="preview-section-head wow fadeIn" data-wow-delay="0.1s">
+                    <p class="section-title bg-white text-center text-primary px-3 bn">সাফল্য</p>
+                    <h2 class="bn">শিক্ষার্থীদের সফলতার কিছু মুহূর্ত</h2>
+                    <span class="eng">Student Success Highlights</span>
+                </div>
+                <div class="success-mini-grid">
+                    <div class="success-mini-card wow fadeIn" data-wow-delay="0.1s">
+                        <div class="s-thumb">
+                            <img src="Poster_img/Poster-2.jpg" alt="">
+                            <span class="s-badge bn">জাতীয়</span>
+                        </div>
+                        <div class="s-body">
+                            <h5 class="bn">হিফজুল কুরআন প্রতিযোগিতা</h5>
+                            <p class="bn">আর রহমান হুফফাজ ফাউন্ডেশন প্রতিযোগিতায় ১১ জন শিক্ষার্থী জাতীয় পর্যায়ে সিলেক্টেড।</p>
+                            <span class="s-meta bn"><i class="fa fa-calendar-alt"></i>০৭ ডিসেম্বর ২০২৫</span>
+                        </div>
+                    </div>
+                    <div class="success-mini-card wow fadeIn" data-wow-delay="0.2s">
+                        <div class="s-thumb">
+                            <img src="Poster_img/Poster-1.jpg" alt="">
+                            <span class="s-badge bn">বিভাগীয়</span>
+                        </div>
+                        <div class="s-body">
+                            <h5 class="bn">চট্টগ্রাম বিভাগীয় প্রতিযোগিতা</h5>
+                            <p class="bn">হিফয বিভাগের দু’জন প্রতিযোগী অসাধারণ ফলাফল অর্জন করেছে।</p>
+                            <span class="s-meta bn"><i class="fa fa-calendar-alt"></i>২৩ নভেম্বর ২০২৫</span>
+                        </div>
+                    </div>
+                    <div class="success-mini-card wow fadeIn" data-wow-delay="0.3s">
+                        <div class="s-thumb">
+                            <img src="Poster_img/Poster-3.jpg" alt="">
+                            <span class="s-badge bn">অর্জন</span>
+                        </div>
+                        <div class="s-body">
+                            <h5 class="bn">তিলাওয়াত প্রতিযোগিতা</h5>
+                            <p class="bn">নিয়মিত প্রতিযোগিতা ও কার্যক্রমে শিক্ষার্থীদের অসাধারণ সাফল্যের মুহূর্ত।</p>
+                            <span class="s-meta bn"><i class="fa fa-calendar-alt"></i>জানুয়ারি ২০২৬</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-view-all">
+                    <a href="activities.html" class="btn-view-detail">সকল সাফল্য দেখুন <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Success Stories End -->
+
+           </section>
+
+        <!-- Recent Photos Start (CMS-driven — see script near footer for GET /api/gallery/recent) -->
+        <section id="recentPhotosSection">
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="preview-section-head wow fadeIn" data-wow-delay="0.1s">
+                    <p class="section-title bg-white text-center text-primary px-3 bn">গ্যালারি</p>
+                    <h2 class="bn">স্মৃতির পাতায় দারুল আমান</h2>
+                    <span class="eng">Moments from Darul Aman</span>
+                    <p class="bn mt-2" style="color:var(--muted);font-size:.92rem;max-width:640px;margin:8px auto 0;">দারুল আমান একাডেমির শিক্ষা, সংস্কৃতি, আয়োজন ও স্মরণীয় মুহূর্তের নির্বাচিত কিছু দৃশ্য।</p>
+                </div>
+                <div class="recent-photos-grid" id="recentPhotosGrid">
+                    <div class="recent-photos-skel"></div>
+                    <div class="recent-photos-skel"></div>
+                    <div class="recent-photos-skel"></div>
+                    <div class="recent-photos-skel"></div>
+                    <div class="recent-photos-skel"></div>
+                    <div class="recent-photos-skel"></div>
+                </div>
+                <div class="preview-view-all">
+                    <a href="gallery.html" class="btn-view-detail eng"><i class="fa fa-images"></i> View All Gallery <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        </section>
+        <!-- Recent Photos End -->
+
+        <!-- Parent Testimonials Start -->
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="preview-section-head wow fadeIn" data-wow-delay="0.1s">
+                    <p class="section-title bg-white text-center text-primary px-3 bn">অভিভাবকদের কথা</p>
+                    <h2 class="bn">অভিভাবকদের অভিব্যক্তি</h2>
+                    <span class="eng">What Guardians Say</span>
+                </div>
+                <div class="parent-grid">
+
+                    <div class="parent-card wow fadeIn" data-wow-delay="0.1s">
+                        <span class="quote-mark">“</span>
+                        <div class="stars">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="quote bn">আমার সন্তান দারুল আমান একাডেমিতে ভর্তির পর থেকেই দ্বীনি জ্ঞানের পাশাপাশি
+                            শৃঙ্খলা ও নৈতিকতায় লক্ষণীয় পরিবর্তন দেখতে পেয়েছি। শিক্ষকদের আন্তরিকতা সত্যিই প্রশংসনীয়।</p>
+                        <div class="parent-id">
+                            <div class="parent-avatar"><i class="fa fa-user"></i></div>
+                            <div>
+                                <div class="parent-name bn">একজন অভিভাবক</div>
+                                <div class="parent-role bn">অভিভাবক, হিফয বিভাগ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="parent-card wow fadeIn" data-wow-delay="0.2s">
+                        <span class="quote-mark">“</span>
+                        <div class="stars">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="quote bn">কুরআন ও আধুনিক শিক্ষার সুন্দর সমন্বয় এই প্রতিষ্ঠানের সবচেয়ে বড় বৈশিষ্ট্য।
+                            শিক্ষকরা প্রতিটি শিক্ষার্থীর প্রতি আলাদাভাবে যত্নশীল, যা আমাকে নিশ্চিন্ত করেছে।</p>
+                        <div class="parent-id">
+                            <div class="parent-avatar"><i class="fa fa-user"></i></div>
+                            <div>
+                                <div class="parent-name bn">একজন অভিভাবক</div>
+                                <div class="parent-role bn">অভিভাবক, একাডেমিক বিভাগ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="parent-card wow fadeIn" data-wow-delay="0.3s">
+                        <span class="quote-mark">“</span>
+                        <div class="stars">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                        <p class="quote bn">প্রতিষ্ঠানের পরিবেশ, নিরাপত্তা ও নিয়মানুবর্তিতা দেখে আমরা পরিবারের সবাই খুবই
+                            সন্তুষ্ট। সন্তানের প্রতিটি অগ্রগতি সম্পর্কে নিয়মিত আপডেট পাওয়া যায়।</p>
+                        <div class="parent-id">
+                            <div class="parent-avatar"><i class="fa fa-user"></i></div>
+                            <div>
+                                <div class="parent-name bn">একজন অভিভাবক</div>
+                                <div class="parent-role bn">অভিভাবক, নূরানী বিভাগ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Parent Testimonials End -->
+
+
+   <!-- Toast -->
+    <div id="daToast" role="status" aria-live="polite"></div>
+
+
+        <!-- Footer Start -->
+        <!--========================
+        FOOTER ORNAMENT DIVIDER
+    =========================-->
+    <div class="footer-divider" aria-hidden="true">
+        <span class="footer-divider-line"></span>
+        <span class="footer-divider-ornament"><i class="fas fa-star-and-crescent"></i></span>
+        <span class="footer-divider-line"></span>
+    </div>
+
+    <!-- Footer Start -->
+    <footer class="site-footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-5 py-5">
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading eng">Our Address</h4>
+                    <p class="footer-text eng"><i class="fas fa-location-dot" aria-hidden="true"></i>
+                        South Sahittika Palli, Darul Aman Road,
+                        B.G.B Camp, Ward no. 06, Cox's Bazar
+                    </p>
+                    <p class="footer-text eng"><a href="tel:+8801729872581"><i class="fas fa-phone" aria-hidden="true"></i>
+                        +8801729-872581</a>
+                    </p>
+                    <p class="footer-text eng"><a href="mailto:darulaman.cox@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i>darulaman.cox@gmail.com</a></p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1841wpaZLF/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://youtube.com/@darulamanacademycoxsbazar6018?si=EyEjNEqusB40VPPH" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        <a href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading eng">Quick Links</h4>
+                    <a class="footer-link eng" href="about.html"><i class="fas fa-angles-right" aria-hidden="true"></i>About Us</a>
+                    <a class="footer-link eng" href="contact.html"><i class="fas fa-angles-right" aria-hidden="true"></i>Contact Us</a>
+                    <a class="footer-link eng" href="teaching_garden.html"><i class="fas fa-angles-right" aria-hidden="true"></i>Our Teachers</a>
+                    <a class="footer-link eng" href="best_student.html"><i class="fas fa-angles-right" aria-hidden="true"></i>Best Students</a>
+                    <a class="footer-link eng" href="admition_from.html"><i class="fas fa-angles-right" aria-hidden="true"></i>Online Admission</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading eng">Class Time</h4>
+                    <div class="footer-class-time">
+                        <i class="fas fa-calendar-days" aria-hidden="true"></i>
+                        <div><span class="eng">Saturday – Thursday</span><strong class="eng">08:00 AM – 01:00 PM</strong></div>
+                    </div>
+                    <div class="footer-class-time">
+                        <i class="fas fa-calendar-days" aria-hidden="true"></i>
+                        <div><span class="eng">Thursday</span><strong class="eng">08:00 AM – 11:00 PM</strong></div>
+                    </div>
+                    <div class="footer-class-time">
+                        <i class="fas fa-calendar-days" aria-hidden="true"></i>
+                        <div><span class="eng">Friday</span><strong class="eng footer-closed">Closed</strong></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading eng">Newsletter</h4>
+                    <p class="footer-text eng" style="margin-bottom:14px;">Stay updated with our latest news and announcements.</p>
+                    <form class="footer-newsletter" id="footerNewsletterForm">
+                        <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+                        <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+                    </form>
+                    <p class="footer-newsletter-note eng" id="footerNewsletterNote"></p>
+                </div>
+
+            </div>
+
+            <div class="site-copyright-bar">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        &copy; <span class="fw-semi-bold eng">Darul Aman Academy Cox's Bazar</span>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end eng">
+                        Designed By <a class="fw-semi-bold" href="https://www.facebook.com/share/1CvGPbvmhE/">Shefayet Monaim</a>.
+                        Ex-Student of
+                        <a class="fw-semi-bold" href="https://www.facebook.com/share/1JCtpF7eQ7/">Darul Aman Academy Cox's Bazar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"> </script>
+    <script src="js/header-nav.js"></script>
+
+    <!-- Director data (single source — also used by director_zone.html) -->
+    <script src="js/director-data.js"></script>
+    <script src="js/director-render.js"></script>
+
+    <script src="js/site-config.js"></script>
+    <script>
+/* ---- Notice board: load real published notices, then start the seamless auto-scroll loop ---- */
+(function () {
+  var noticeList = document.getElementById('noticeList');
+  var base = (window.DAA_SITE_CONFIG && window.DAA_SITE_CONFIG.API_BASE_URL) || '/api';
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function renderNotices(notices) {
+    if (!notices.length) {
+      noticeList.innerHTML = '<div class="notice-item" style="cursor:default;"><div class="notice-content"><p class="notice-text bn">এই মুহূর্তে কোনো নোটিশ নেই।</p></div></div>';
+      return;
+    }
+    noticeList.innerHTML = notices.map(function (n) {
+      var d = n.publishedAt ? new Date(n.publishedAt) : null;
+      var day = d ? String(d.getDate()).padStart(2, '0') : '--';
+      var month = d ? MONTHS[d.getMonth()] : '';
+      return '<div class="notice-item" style="cursor:default;">' +
+        '<div class="notice-date"><strong>' + day + '</strong><span>' + month + '</span></div>' +
+        '<div class="notice-content"><p class="notice-text">' + escapeHtml(n.title) + '</p></div>' +
+        '</div>';
+    }).join('');
+  }
+
+  function startLoop() {
+    if (noticeList.children.length > 1) {
+      noticeList.innerHTML += noticeList.innerHTML; // duplicate items once for a seamless loop
+    }
+    var loopHeight = noticeList.scrollHeight / 2;
+    var pxPerSecond = 28; // scroll speed — lower = slower
+    noticeList.style.animationDuration = (loopHeight / pxPerSecond) + 's';
+  }
+
+  fetch(base + '/notices/public')
+    .then(function (res) { return res.json(); })
+    .then(function (json) {
+      renderNotices((json && json.data) || []);
+      startLoop();
+    })
+    .catch(function () {
+      renderNotices([]);
+      startLoop();
+    });
+})();
+
+/* ---- Recent Photos (Home Page): load latest published gallery items — no hardcoded images ---- */
+(function () {
+  var section = document.getElementById('recentPhotosSection');
+  var grid = document.getElementById('recentPhotosGrid');
+  var base = (window.DAA_SITE_CONFIG && window.DAA_SITE_CONFIG.API_BASE_URL) || '/api';
+  var FILE_BASE = base.replace(/\/api\/?$/, ''); // uploaded images are served outside the /api prefix
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var CATEGORY_LABEL = {
+    academic: 'Academic', events: 'Events', students: 'Students', teachers: 'Teachers',
+    hifz: 'Hifz', sports: 'Sports', cultural: 'Cultural', campus: 'Campus', other: 'Other',
+  };
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return '';
+    var d = new Date(iso);
+    if (isNaN(d)) return '';
+    return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+  }
+
+  function renderPhotos(items) {
+    // Spec §11: never show a broken/empty grid — if there's nothing to
+    // show (no published+featured photos yet, or the request failed),
+    // hide the whole section rather than rendering an empty shell.
+    if (!items.length) { section.style.display = 'none'; return; }
+
+    grid.innerHTML = items.slice(0, 6).map(function (it) {
+      return '' +
+        '<a class="recent-photo-card" href="gallery.html">' +
+          '<span class="rp-badge">' + escapeHtml(CATEGORY_LABEL[it.category] || it.category) + '</span>' +
+          '<img src="' + FILE_BASE + it.imageUrl + '" alt="' + escapeHtml(it.title) + '" loading="lazy" width="400" height="300">' +
+          '<div class="rp-overlay">' +
+            '<div>' +
+              '<p class="rp-title">' + escapeHtml(it.title) + '</p>' +
+              '<span class="rp-meta">' + fmtDate(it.eventDate || it.createdAt) + '</span>' +
+            '</div>' +
+          '</div>' +
+        '</a>';
+    }).join('');
+    section.style.display = '';
+  }
+
+  fetch(base + '/gallery/recent?limit=6')
+    .then(function (res) { return res.json(); })
+    .then(function (json) {
+      if (!json || json.success === false) throw new Error('bad response');
+      renderPhotos(json.data || []);
+    })
+    .catch(function () {
+      section.style.display = 'none'; // graceful degrade — spec §11: never break the rest of the Home page
+    });
+})();
+</script>
+    
+   
+</body>
+
+</html>

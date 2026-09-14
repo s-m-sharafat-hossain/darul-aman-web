@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Login — Darul Aman Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Anek+Bangla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/portal.css">
+</head>
+<body class="portal-body">
+
+<div class="auth-shell">
+  <div class="auth-card">
+
+    <a href="../index.html" class="auth-back"><i class="fa-solid fa-arrow-left"></i> Back to website</a>
+
+    <div class="auth-logo">
+      <img src="../Logo_icon/L-2.svg" alt="Darul Aman Academy">
+      <div class="brand">
+        <h4>DARUL AMAN ACADEMY</h4>
+        <span>Management Portal</span>
+      </div>
+    </div>
+
+    <div class="auth-error" id="loginError"></div>
+
+    <form id="loginForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label">User ID, Email or Phone</label>
+        <input type="text" class="form-control" id="identifier" placeholder="e.g. DAA-2026-0341" required autocomplete="username">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <div class="input-group">
+          <input type="password" class="form-control" id="password" placeholder="Enter your password" required autocomplete="current-password">
+          <button class="btn btn-outline-secondary" type="button" id="togglePw" style="border-radius:0 8px 8px 0;"><i class="fa-solid fa-eye"></i></button>
+        </div>
+      </div>
+
+      <div class="mb-3" id="otpGroup" style="display:none;">
+        <label class="form-label">2FA Code</label>
+        <input type="text" class="form-control" id="otp" placeholder="6-digit code" inputmode="numeric" maxlength="6">
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="rememberMe">
+          <label class="form-check-label" for="rememberMe" style="font-size:13.5px;">Remember me</label>
+        </div>
+        <a href="forgot-password.html" style="font-size:13px;font-weight:700;color:var(--green);">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn btn-portal-primary w-100" id="loginBtn">
+        <span id="loginBtnText">Log In</span>
+      </button>
+    </form>
+
+    <p class="text-center mt-4" style="font-size:12.5px;color:var(--muted);">
+      &copy; <span id="year"></span> Darul Aman Academy — Secure portal access only.
+    </p>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// If already logged in, bounce straight to the right dashboard.
+(function redirectIfLoggedIn(){
+  const user = window.DAA_API.getUser();
+  if (user && window.DAA_API.getToken()) {
+    location.href = roleToDashboard(user.role);
+  }
+})();
+
+function roleToDashboard(role){
+  const map = {
+    student: 'student/dashboard.html',
+    guardian: 'guardian/dashboard.html',
+    teacher: 'teacher/dashboard.html',
+    hifz_teacher: 'teacher/dashboard.html',
+    hifz_coordinator: 'teacher/dashboard.html',
+    admin: 'admin/dashboard.html',
+    principal: 'admin/dashboard.html',
+    accountant: 'admin/dashboard.html',
+    receptionist: 'admin/dashboard.html',
+    librarian: 'admin/dashboard.html',
+    super_admin: 'super-admin/dashboard.html',
+  };
+  return map[role] || 'login.html';
+}
+
+const form = document.getElementById('loginForm');
+const errorBox = document.getElementById('loginError');
+const btn = document.getElementById('loginBtn');
+const btnText = document.getElementById('loginBtnText');
+
+document.getElementById('togglePw').addEventListener('click', () => {
+  const pw = document.getElementById('password');
+  const icon = document.querySelector('#togglePw i');
+  const isPw = pw.type === 'password';
+  pw.type = isPw ? 'text' : 'password';
+  icon.className = isPw ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+});
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  errorBox.classList.remove('show');
+
+  const identifier = document.getElementById('identifier').value.trim();
+  const password = document.getElementById('password').value;
+  const otp = document.getElementById('otp').value.trim();
+
+  btn.disabled = true;
+  btnText.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Signing in…';
+
+  try {
+    const data = await window.DAA_API.login(identifier, password, otp || undefined);
+    location.href = data.redirectTo ? mapRedirectTo(data.redirectTo) : roleToDashboard(data.user.role);
+  } catch (err) {
+    if (err.status === 401 && /otp|2fa/i.test(err.message)) {
+      document.getElementById('otpGroup').style.display = 'block';
+    }
+    errorBox.textContent = err.message || 'Login failed. Please check your credentials.';
+    errorBox.classList.add('show');
+  } finally {
+    btn.disabled = false;
+    btnText.textContent = 'Log In';
+  }
+});
+
+// Backend's redirectTo is a server-side path like "/student" — map to our static file structure.
+function mapRedirectTo(serverPath){
+  const key = serverPath.replace(/^\//, '').split('/')[0];
+  const map = {
+    student: 'student/dashboard.html',
+    guardian: 'guardian/dashboard.html',
+    teacher: 'teacher/dashboard.html',
+    'hifz-teacher': 'teacher/dashboard.html',
+    admin: 'admin/dashboard.html',
+    'super-admin': 'super-admin/dashboard.html',
+  };
+  return map[key] || 'login.html';
+}
+</script>
+</body>
+</html>

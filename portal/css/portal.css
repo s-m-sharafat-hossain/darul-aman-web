@@ -1,0 +1,442 @@
+/*=========================================================
+  DARUL AMAN ACADEMY — PORTAL DESIGN SYSTEM
+  Built to match darul-aman-website/css/style.css tokens
+=========================================================*/
+
+:root{
+    --green-deep:   #043927;
+    --green:        #006241;
+    --green-soft:   #E8F4EE;
+    --gold:         #C7972B;
+    --gold-light:   #F3E3B0;
+    --cream:        #FBF7EE;
+    --ink:          #17241D;
+    --muted:        #5B6B60;
+    --accent:       #C7972B;
+
+    --danger:       #C0392B;
+    --danger-soft:  #FBEAE8;
+    --warn:         #B8860B;
+    --warn-soft:    #FFF6E0;
+    --ok:           #0F6B47;
+    --ok-soft:      #E8F4EE;
+    --info:         #0F766E;
+    --info-soft:    #E6F5F3;
+
+    --font-display: 'Baloo Da 2', sans-serif;
+    --font-bn:      'Anek Bangla', sans-serif;
+    --font-body:    'Nunito', sans-serif;
+    --font-script:  'Satisfy', cursive;
+
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+    --shadow-soft: 0 18px 40px -18px rgba(11,74,52,0.28);
+    --shadow-card: 0 5px 20px rgba(0,0,0,.06);
+
+    --sidebar-w: 264px;
+    --topbar-h: 68px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body.portal-body{
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--cream);
+    margin:0;
+    min-height:100vh;
+}
+
+h1,h2,h3,h4,h5,h6{ font-family: var(--font-display); color: var(--green-deep); margin:0 0 .35em; }
+
+a{ text-decoration:none; }
+
+/* ---------- Auth / login screen ---------- */
+.auth-shell{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(1200px 500px at 10% -10%, rgba(199,151,43,.14), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(0,98,65,.12), transparent 60%),
+        var(--cream);
+    padding:24px;
+}
+.auth-card{
+    width:100%;
+    max-width:420px;
+    background:#fff;
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-soft);
+    padding:38px 34px;
+    border:1px solid rgba(4,57,39,.06);
+}
+.auth-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:22px;
+}
+.auth-logo img{ width:46px; height:46px; object-fit:contain; }
+.auth-logo .brand h4{ font-size:18px; margin:0; }
+.auth-logo .brand span{ font-size:12px; color:var(--muted); }
+
+.form-label{ font-weight:700; font-size:14px; color:var(--green-deep); }
+.form-control{
+    border-radius:var(--radius-sm);
+    border:1.5px solid #E3E0D6;
+    padding:11px 14px;
+    font-family:var(--font-body);
+}
+.form-control:focus{
+    border-color:var(--green);
+    box-shadow:0 0 0 .2rem rgba(0,98,65,.12);
+}
+
+.btn-portal-primary{
+    background:var(--green);
+    color:#fff;
+    border:none;
+    border-radius:999px;
+    font-weight:800;
+    padding:11px 20px;
+    box-shadow:0 10px 22px -10px rgba(0,98,65,.6);
+    transition:filter .15s, transform .15s;
+}
+.btn-portal-primary:hover{ filter:brightness(1.08); transform:translateY(-1px); color:#fff; }
+.btn-portal-primary:disabled{ opacity:.65; transform:none; }
+
+.btn-portal-outline{
+    background:transparent;
+    color:var(--green-deep);
+    border:1.5px solid var(--green-deep);
+    border-radius:999px;
+    font-weight:700;
+    padding:9px 18px;
+}
+.btn-portal-outline:hover{ background:var(--green-deep); color:#fff; }
+
+.auth-error{
+    background:var(--danger-soft);
+    color:var(--danger);
+    border-radius:var(--radius-sm);
+    padding:10px 14px;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:16px;
+    display:none;
+}
+.auth-error.show{ display:block; }
+
+.auth-back{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:13px;
+    color:var(--muted);
+    font-weight:700;
+    margin-bottom:18px;
+}
+.auth-back:hover{ color:var(--green); }
+
+/* ---------- Portal app shell (sidebar + topbar) ---------- */
+.portal-app{ display:flex; min-height:100vh; }
+
+.portal-sidebar{
+    width:var(--sidebar-w);
+    background:var(--green-deep);
+    color:#fff;
+    position:fixed;
+    top:0; left:0; bottom:0;
+    display:flex;
+    flex-direction:column;
+    z-index:1000;
+    transition:transform .25s ease;
+}
+.portal-sidebar .side-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:18px 20px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+.portal-sidebar .side-brand img{ width:36px; height:36px; object-fit:contain; }
+.portal-sidebar .side-brand strong{ font-family:var(--font-display); font-size:15px; display:block; line-height:1.15; }
+.portal-sidebar .side-brand small{ color:var(--gold-light); font-size:11px; letter-spacing:.03em; text-transform:uppercase; }
+
+.portal-sidebar .side-role{
+    margin:14px 20px 6px;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:rgba(255,255,255,.55);
+    font-weight:700;
+}
+
+.side-nav{ list-style:none; margin:0; padding:6px 12px; flex:1; overflow-y:auto; }
+.side-nav li{ margin-bottom:2px; }
+.side-nav a{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:11px 14px;
+    border-radius:var(--radius-sm);
+    color:rgba(255,255,255,.82);
+    font-weight:600;
+    font-size:14.5px;
+}
+.side-nav a i{ width:18px; text-align:center; font-size:15px; color:var(--gold-light); }
+.side-nav a:hover{ background:rgba(255,255,255,.08); color:#fff; }
+.side-nav a.active{ background:var(--gold); color:var(--green-deep); }
+.side-nav a.active i{ color:var(--green-deep); }
+
+.portal-sidebar .side-foot{
+    padding:14px 20px 20px;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+.side-foot .logout-btn{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    width:100%;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    border:none;
+    border-radius:var(--radius-sm);
+    padding:10px 14px;
+    font-weight:700;
+    font-size:14px;
+    cursor:pointer;
+}
+.side-foot .logout-btn:hover{ background:rgba(255,255,255,.16); }
+
+.portal-main{
+    margin-left:var(--sidebar-w);
+    flex:1;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+}
+
+.portal-topbar{
+    height:var(--topbar-h);
+    background:#fff;
+    border-bottom:1px solid #ECE7D9;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 26px;
+    position:sticky;
+    top:0;
+    z-index:900;
+}
+.topbar-title h1{ font-size:19px; margin:0; }
+.topbar-title p{ margin:0; font-size:12.5px; color:var(--muted); }
+
+.topbar-user{ display:flex; align-items:center; gap:12px; }
+/* Generic avatar circle — used by the topbar user chip and reused by any
+   list row that needs a photo/initials circle (e.g. Admin Students table)
+   rather than duplicating this per page. Un-namespaced font-size lets each
+   call site set its own; .topbar-user .avatar below keeps the topbar's
+   existing look exactly as it was. */
+.avatar{
+    border-radius:50%;
+    background:var(--green-soft); color:var(--green-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-family:var(--font-display);
+    overflow:hidden; flex-shrink:0;
+}
+.avatar img{ width:100%; height:100%; object-fit:cover; }
+.avatar-sm{ width:34px; height:34px; font-size:12.5px; }
+.topbar-user .avatar{ width:38px; height:38px; }
+.topbar-user .who{ line-height:1.2; }
+.topbar-user .who strong{ display:block; font-size:14px; }
+.topbar-user .who span{ font-size:11.5px; color:var(--muted); text-transform:capitalize; }
+
+.sidebar-toggle{
+    display:none;
+    border:none; background:transparent; font-size:20px; color:var(--green-deep);
+}
+
+.portal-content{
+    padding: clamp(16px, 2vw, 26px) clamp(16px, 2.8vw, 34px);
+    flex:1;
+    width:100%;
+    max-width:1520px;
+    margin-inline:auto;
+}
+
+/* ---------- Cards / stats / widgets ---------- */
+.p-card{
+    background:#fff;
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-card);
+    border:1px solid rgba(4,57,39,.05);
+    padding:20px;
+}
+.p-card h5{ font-size:15px; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+.p-card h5 i{ color:var(--gold); }
+
+.stat-card{
+    background:#fff;
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-card);
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    border-left:4px solid var(--green);
+}
+.stat-card .stat-icon{
+    width:46px; height:46px; border-radius:50%;
+    background:var(--green-soft); color:var(--green-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-size:19px; flex-shrink:0;
+}
+.stat-card .stat-value{ font-family:var(--font-display); font-size:23px; font-weight:700; color:var(--green-deep); line-height:1.1; }
+.stat-card .stat-label{ font-size:12.5px; color:var(--muted); font-weight:600; }
+.stat-card.gold{ border-left-color:var(--gold); }
+.stat-card.gold .stat-icon{ background:var(--gold-light); color:var(--warn); }
+.stat-card.info{ border-left-color:var(--info); }
+.stat-card.info .stat-icon{ background:var(--info-soft); color:var(--info); }
+.stat-card.danger{ border-left-color:var(--danger); }
+.stat-card.danger .stat-icon{ background:var(--danger-soft); color:var(--danger); }
+
+.badge-status{
+    display:inline-block;
+    padding:4px 11px;
+    border-radius:999px;
+    font-size:11.5px;
+    font-weight:700;
+    text-transform:capitalize;
+}
+.badge-ok{ background:var(--ok-soft); color:var(--ok); }
+.badge-warn{ background:var(--warn-soft); color:var(--warn); }
+.badge-danger{ background:var(--danger-soft); color:var(--danger); }
+.badge-muted{ background:#EFEDE6; color:var(--muted); }
+.badge-gold{ background:var(--gold-soft, #F3E3B8); color:#8A6A1E; }
+
+.list-clean{ list-style:none; margin:0; padding:0; }
+.list-clean li{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:11px 0;
+    border-bottom:1px dashed #E6E2D5;
+    font-size:14px;
+}
+.list-clean li:last-child{ border-bottom:none; }
+
+/* ---------- Hifz para progress grid ---------- */
+.para-grid{
+    display:grid;
+    grid-template-columns:repeat(10, 1fr);
+    gap:8px;
+    margin-bottom:16px;
+}
+@media (max-width:576px){
+    .para-grid{ grid-template-columns:repeat(6, 1fr); }
+}
+.para-cell{
+    aspect-ratio:1/1;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:8px;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:13px;
+    border:1px solid transparent;
+}
+.para-cell-done{ background:var(--green-soft); color:var(--green-deep); border-color:var(--green); }
+.para-cell-current{ background:var(--gold-light); color:var(--warn); border-color:var(--gold); box-shadow:0 0 0 2px rgba(0,0,0,.03); }
+.para-cell-pending{ background:#F5F3EC; color:var(--muted); }
+
+.para-legend{
+    display:flex; flex-wrap:wrap; gap:16px;
+    font-size:12.5px; color:var(--muted); font-weight:600;
+}
+.para-legend span{ display:flex; align-items:center; gap:6px; }
+.para-dot{
+    width:12px; height:12px; border-radius:4px; display:inline-block;
+}
+
+.empty-state{
+    text-align:center;
+    color:var(--muted);
+    padding:26px 10px;
+    font-size:13.5px;
+}
+.empty-state i{ font-size:26px; color:var(--gold); display:block; margin-bottom:8px; }
+
+.skeleton{
+    background:linear-gradient(90deg,#EFEDE6 25%,#F7F5EE 37%,#EFEDE6 63%);
+    background-size:400% 100%;
+    animation:skeleton-loading 1.4s ease infinite;
+    border-radius:8px;
+}
+@keyframes skeleton-loading{ 0%{background-position:100% 50%;} 100%{background-position:0 50%;} }
+
+.child-switcher{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+.child-chip{
+    background:#fff;
+    border:1.5px solid #E6E2D5;
+    border-radius:999px;
+    padding:8px 16px;
+    font-weight:700;
+    font-size:13.5px;
+    cursor:pointer;
+    color:var(--ink);
+}
+.child-chip.active{ background:var(--green); border-color:var(--green); color:#fff; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px){
+    .portal-sidebar{ transform:translateX(-100%); }
+    .portal-sidebar.open{ transform:translateX(0); }
+    .portal-main{ margin-left:0; }
+    .sidebar-toggle{ display:inline-block; }
+    .sidebar-backdrop{
+        display:none;
+        position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:999;
+    }
+    .sidebar-backdrop.show{ display:block; }
+    body.sidebar-open{ overflow:hidden; }
+}
+
+@media (max-width: 576px){
+    .portal-content{ padding:16px; }
+    .auth-card{ padding:28px 22px; }
+}
+
+.print-only{ display:none; }
+
+/* ==========================================================
+   PRINT — Student Details only. Scoped narrowly (selectors
+   specific to student-details.html's own markup) so it can
+   never affect any other page's on-screen or print layout.
+   ========================================================== */
+@media print{
+    .portal-sidebar, .portal-topbar, .sidebar-backdrop, .no-print{ display:none !important; }
+    .portal-main{ margin-left:0 !important; }
+    .portal-content{ max-width:none !important; padding:0 !important; }
+    body.portal-body{ background:#fff !important; }
+    .print-only{ display:block !important; margin-bottom:14px; }
+    .print-academy-name{ font-family:var(--font-display); font-weight:800; font-size:1.3rem; color:var(--green-deep); }
+    .print-doc-title{ font-size:.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+
+    /* Only the profile itself (Overview + Academic) is meant to print —
+       tabs like Attendance/Exams/Fees are working views for the portal
+       session, not part of the printed Student Profile document (spec
+       Step 17/19), and print output otherwise reuses the same
+       already-rendered DOM, so a tab's own permission/visibility rules
+       still apply exactly as they did on screen. */
+    .student-detail-tabs{ display:none !important; }
+    #tab-attendance, #tab-exams, #tab-hifz, #tab-assignments, #tab-fees, #tab-documents{ display:none !important; }
+    #tab-overview, #tab-academic{ display:block !important; }
+
+    .p-card{ box-shadow:none !important; border:1px solid #ddd; break-inside:avoid; }
+    a[href]{ color:inherit !important; text-decoration:none !important; }
+}

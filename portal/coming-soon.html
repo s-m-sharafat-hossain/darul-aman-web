@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon — Darul Aman Academy Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Anek+Bangla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/portal.css">
+</head>
+<body class="portal-body">
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/shell.js"></script>
+<script>
+  // This page lives at /portal/coming-soon.html — one level above every role folder.
+  const user = window.DAA_API.requireAuth();
+  if (user) {
+    const DASH_BY_ROLE = {
+      student: 'student/dashboard.html',
+      guardian: 'guardian/dashboard.html',
+      teacher: 'teacher/dashboard.html',
+      hifz_teacher: 'teacher/dashboard.html',
+      hifz_coordinator: 'teacher/dashboard.html',
+      admin: 'admin/dashboard.html',
+      principal: 'admin/dashboard.html',
+      accountant: 'admin/dashboard.html',
+      receptionist: 'admin/dashboard.html',
+      librarian: 'admin/dashboard.html',
+      super_admin: 'super-admin/dashboard.html',
+    };
+    const dashboardHref = DASH_BY_ROLE[user.role] || 'login.html';
+
+    const navMap = {
+      student: [
+        {label:'Dashboard', icon:'fa-solid fa-gauge', href: dashboardHref, key:'dash'},
+        {label:'Attendance', icon:'fa-solid fa-calendar-check', href:'coming-soon.html', key:'att'},
+        {label:'Exams & Results', icon:'fa-solid fa-file-lines', href:'coming-soon.html', key:'exam'},
+        {label:'Fees', icon:'fa-solid fa-money-bill-wave', href:'coming-soon.html', key:'fees'},
+        {label:'Hifz Progress', icon:'fa-solid fa-book-quran', href:'coming-soon.html', key:'hifz'},
+        {label:'Notices', icon:'fa-solid fa-bullhorn', href:'coming-soon.html', key:'notice'},
+        {label:'My Profile', icon:'fa-solid fa-user', href:'coming-soon.html', key:'profile'},
+      ],
+      guardian: [
+        {label:'Dashboard', icon:'fa-solid fa-gauge', href: dashboardHref, key:'dash'},
+        {label:'My Children', icon:'fa-solid fa-children', href:'coming-soon.html', key:'children'},
+        {label:'Fees', icon:'fa-solid fa-money-bill-wave', href:'coming-soon.html', key:'fees'},
+        {label:'Notices', icon:'fa-solid fa-bullhorn', href:'coming-soon.html', key:'notice'},
+        {label:'My Profile', icon:'fa-solid fa-user', href:'coming-soon.html', key:'profile'},
+      ],
+      teacher: [
+        {label:'Dashboard', icon:'fa-solid fa-gauge', href: dashboardHref, key:'dash'},
+        {label:'My Routine', icon:'fa-solid fa-calendar-days', href:'coming-soon.html', key:'routine'},
+        {label:'Attendance', icon:'fa-solid fa-calendar-check', href:'coming-soon.html', key:'att'},
+        {label:'Assignments', icon:'fa-solid fa-file-pen', href:'coming-soon.html', key:'assign'},
+        {label:'Hifz Evaluation', icon:'fa-solid fa-book-quran', href:'coming-soon.html', key:'hifz'},
+        {label:'Notices', icon:'fa-solid fa-bullhorn', href:'coming-soon.html', key:'notice'},
+      ],
+      admin: [
+        {label:'Dashboard', icon:'fa-solid fa-gauge', href: dashboardHref, key:'dash'},
+        {label:'Students', icon:'fa-solid fa-user-graduate', href:'coming-soon.html', key:'students'},
+        {label:'Teachers & Staff', icon:'fa-solid fa-chalkboard-user', href:'coming-soon.html', key:'teachers'},
+        {label:'Admissions', icon:'fa-solid fa-file-signature', href:'coming-soon.html', key:'admissions'},
+        {label:'Finance', icon:'fa-solid fa-sack-dollar', href:'coming-soon.html', key:'finance'},
+        {label:'Notices', icon:'fa-solid fa-bullhorn', href:'coming-soon.html', key:'notice'},
+      ],
+      super_admin: [
+        {label:'Dashboard', icon:'fa-solid fa-gauge', href: dashboardHref, key:'dash'},
+        {label:'Students', icon:'fa-solid fa-user-graduate', href:'coming-soon.html', key:'students'},
+        {label:'Teachers & Staff', icon:'fa-solid fa-chalkboard-user', href:'coming-soon.html', key:'teachers'},
+        {label:'Finance', icon:'fa-solid fa-sack-dollar', href:'coming-soon.html', key:'finance'},
+        {label:'Users & Roles', icon:'fa-solid fa-users-gear', href:'coming-soon.html', key:'users'},
+        {label:'Permissions', icon:'fa-solid fa-key', href:'coming-soon.html', key:'perms'},
+        {label:'Audit Log', icon:'fa-solid fa-clock-rotate-left', href:'coming-soon.html', key:'audit'},
+      ],
+    };
+    const ROLE_GROUP = { hifz_teacher:'teacher', hifz_coordinator:'teacher', principal:'admin', accountant:'admin', receptionist:'admin', librarian:'admin' };
+    const nav = navMap[user.role] || navMap[ROLE_GROUP[user.role]] || navMap.admin;
+
+    const content = window.DAA_SHELL.render({
+      rootPrefix: '', // this page is already at /portal/ root
+      navItems: nav,
+      activeKey: '',
+      pageTitle: 'Coming Soon',
+      pageSubtitle: 'This module is being built next',
+    });
+
+    content.innerHTML = `
+      <div class="p-card text-center" style="max-width:520px;margin:40px auto;padding:44px 30px;">
+        <i class="fa-solid fa-screwdriver-wrench" style="font-size:34px;color:var(--gold);margin-bottom:14px;"></i>
+        <h3>This section is coming soon</h3>
+        <p style="color:var(--muted);">We're building this module next, on top of the backend API that already supports it. In the meantime, head back to your dashboard.</p>
+        <a href="${dashboardHref}" class="btn btn-portal-primary mt-2"><i class="fa-solid fa-arrow-left me-2"></i>Back to Dashboard</a>
+      </div>
+    `;
+  }
+</script>
+</body>
+</html>
