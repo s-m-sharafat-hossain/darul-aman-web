@@ -24,10 +24,31 @@ const changePasswordSchema = z.object({
   newPassword: z.string().min(8),
 });
 
+const registerSchema = z.object({
+  role: z.enum(['student', 'guardian', 'teacher', 'staff']),
+  fullName: z.string().min(2, 'Full name is required'),
+  email: z.string().email('Invalid email address').optional(),
+  phone: z.string().min(10, 'Phone number is required'),
+  password: z.string().min(8, 'Password must be at least 8 characters'),
+  // Student specific fields
+  studentCode: z.string().optional(),
+  dateOfBirth: z.string().optional(),
+  gender: z.enum(['male', 'female']).optional(),
+  // Guardian specific fields
+  relation: z.string().optional(),
+  guardianStudentCode: z.string().optional(),
+  // Teacher specific fields
+  staffCode: z.string().optional(),
+  department: z.string().optional(),
+  // Staff specific fields
+  designation: z.string().optional(),
+});
+
 module.exports = {
   loginSchema,
   refreshSchema,
   forgotPasswordSchema,
   resetPasswordSchema,
   changePasswordSchema,
+  registerSchema,
 };

@@ -274,6 +274,137 @@ async function resetPassword({ token, newPassword }) {
   ]);
 }
 
+async function register(userData) {
+  const { role, fullName, email, phone, password, ...roleSpecificData } = userData;
+
+  // Check if user already exists with same email or phone
+  const existingUser = await prisma.user.findFirst({
+    where: {
+      OR: [
+        ...(email ? [{ email }] : []),
+        ...(phone ? [{ phone }] : []),
+      ],
+    },
+  });
+
+  if (existingUser) {
+    if (existingUser.email === email) {
+      throw new ApiError(409, 'An account with this email already exists.');
+    }
+    if (existingUser.phone === phone) {
+      throw new ApiError(409, 'An account with this phone number already exists.');
+    }
+  }
+
+  // Validate password strength
+  const strengthErrors = validatePasswordStrength(password);
+  if (strengthErrors.length) throw new ApiError(422, strengthErrors.join(' '));
+
+  const passwordHash = await hashPassword(password);
+
+  // Generate user code based on role
+  const rolePrefixes = {
+    student: 'STU',
+    guardian: 'GRD',
+    teacher: 'STF',
+    staff: 'STF',
+  };
+  const prefix = rolePrefixes[role] || 'USR';
+  const timestamp = Date.now().toString().slice(-6);
+  const userCode = `${prefix}-${new Date().getFullYear()}-${timestamp}`;
+
+  // Get role from database
+  const roleRecord = await prisma.role.findUnique({ where: { name: role } });
+  if (!roleRecord) throw new ApiError(404, 'Role not found.');
+
+  // Create user transaction
+  const result = await prisma.$transaction(async (tx) => {
+    // Create base user
+    const user = await tx.user.create({
+      data: {
+        userCode,
+        email: email || null,
+        phone: phone || null,
+        passwordHash,
+        roleId: roleRecord.id,
+        mustChangePassword: false,
+        isActive: true,
+      },
+    });
+
+    // Create role-specific records
+    if (role === 'student') {
+      const department = await tx.department.findFirst({ where: { slug: 'primary' } });
+      const academicYear = await tx.academicYear.findFirst({ where: { isCurrent: true } });
+
+      await tx.student.create({
+        data: {
+          userId: user.id,
+          studentCode: userCode,
+          fullName,
+          gender: roleSpecificData.gender || 'male',
+          currentClassId: null, // Will be assigned by admin
+          departmentId: department?.id || null,
+          academicYearId: academicYear?.id || null,
+          rollNumber: '00',
+          admissionDate: new Date(),
+          status: 'pending',
+          dateOfBirth: roleSpecificData.dateOfBirth ? new Date(roleSpecificData.dateOfBirth) : null,
+        },
+      });
+    } else if (role === 'guardian') {
+      await tx.guardian.create({
+        data: {
+          userId: user.id,
+          fullName,
+          phone: phone || null,
+          relationDefault: roleSpecificData.relation || 'Guardian',
+        },
+      });
+    } else if (role === 'teacher' || role === 'staff') {
+      const department = roleSpecificData.department 
+        ? await tx.department.findFirst({ where: { slug: roleSpecificData.department } })
+        : await tx.department.findFirst({ where: { slug: 'academic' } });
+
+      const designation = await tx.designation.findFirst({
+        where: { title: role === 'teacher' ? 'Senior Teacher' : (roleSpecificData.designation || 'Admin Staff') },
+      });
+
+      const staff = await tx.staff.create({
+        data: {
+          userId: user.id,
+          staffCode: userCode,
+          fullName,
+          departmentId: department?.id || null,
+          designationId: designation?.id || null,
+          employmentStatus: 'pending',
+        },
+      });
+
+      if (role === 'teacher') {
+        await tx.teacher.create({
+          data: {
+            staffId: staff.id,
+            teacherType: roleSpecificData.department === 'hifz' ? 'hifz' : 'general',
+          },
+        });
+      }
+    }
+
+    return { user };
+  });
+
+  return {
+    user: {
+      id: result.user.id,
+      userCode: result.user.userCode,
+      email: result.user.email,
+      phone: result.user.phone,
+      role: role,
+    },
+  };
+}
+
 module.exports = {
   login,
   refresh,
@@ -281,5 +412,6 @@ module.exports = {
   changePassword,
   requestPasswordReset,
   resetPassword,
+  register,
   findUserByIdentifier,
 };

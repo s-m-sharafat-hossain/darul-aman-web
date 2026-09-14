@@ -4,6 +4,7 @@ const {
   forgotPasswordSchema,
   resetPasswordSchema,
   changePasswordSchema,
+  registerSchema,
 } = require('./auth.schema');
 const { ok } = require('../../utils/apiResponse');
 const { asyncHandler } = require('../../utils/helpers');
@@ -109,4 +110,21 @@ const resetPassword = asyncHandler(async (req, res) => {
   return ok(res, { message: 'Password has been reset. Please log in.' });
 });
 
-module.exports = { login, refreshToken, logout, me, changePassword, forgotPassword, resetPassword };
+const register = asyncHandler(async (req, res) => {
+  const userData = registerSchema.parse(req.body);
+  const result = await authService.register(userData);
+
+  await recordAudit({
+    req: { ...req, user: { id: result.user.id } },
+    action: 'auth.register',
+    entityType: 'user',
+    entityId: result.user.id,
+  });
+
+  return ok(res, {
+    message: 'Account created successfully. Please log in with your credentials.',
+    user: result.user,
+  });
+});
+
+module.exports = { login, refreshToken, logout, me, changePassword, forgotPassword, resetPassword, register };

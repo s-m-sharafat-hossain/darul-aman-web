@@ -49,6 +49,31 @@ body.portal-body{
     min-height:100vh;
 }
 
+.auth-error, .auth-success {
+    display: none;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.auth-error {
+    background: var(--danger-soft);
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.auth-success {
+    background: var(--ok-soft);
+    color: var(--ok);
+    border: 1px solid var(--ok);
+}
+
+.auth-error.show, .auth-success.show {
+    display: block;
+}
+
 h1,h2,h3,h4,h5,h6{ font-family: var(--font-display); color: var(--green-deep); margin:0 0 .35em; }
 
 a{ text-decoration:none; }

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account — Darul Aman Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Anek+Bangla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/portal.css">
+<style>
+.role-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  background: white;
+}
+.role-card:hover {
+  border-color: var(--green);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.role-card.selected {
+  border-color: var(--green);
+  background: rgba(3, 108, 95, 0.05);
+}
+.role-card i {
+  font-size: 2.5rem;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.role-card h5 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--green-deep);
+}
+.role-card p {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.form-section {
+  display: none;
+}
+.form-section.active {
+  display: block;
+}
+</style>
+</head>
+<body class="portal-body">
+
+<div class="auth-shell">
+  <div class="auth-card" style="max-width: 500px;">
+    <a href="login.html" class="auth-back"><i class="fa-solid fa-arrow-left"></i> Back to login</a>
+
+    <div class="auth-logo">
+      <img src="../Logo_icon/L-2.svg" alt="Darul Aman Academy">
+      <div class="brand">
+        <h4>DARUL AMAN ACADEMY</h4>
+        <span>Create New Account</span>
+      </div>
+    </div>
+
+    <div class="auth-error" id="regError"></div>
+    <div class="auth-success" id="regSuccess"></div>
+
+    <!-- Role Selection -->
+    <div id="roleSelection">
+      <h5 class="mb-3 text-center">Select Your Role</h5>
+      <div class="row g-3">
+        <div class="col-6">
+          <div class="role-card" data-role="student">
+            <i class="fa-solid fa-user-graduate"></i>
+            <h5>Student</h5>
+            <p>I am a student</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="role-card" data-role="guardian">
+            <i class="fa-solid fa-user-shield"></i>
+            <h5>Guardian</h5>
+            <p>I am a parent/guardian</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="role-card" data-role="teacher">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <h5>Teacher</h5>
+            <p>I am a teacher</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="role-card" data-role="staff">
+            <i class="fa-solid fa-user-tie"></i>
+            <h5>Staff</h5>
+            <p>I am staff member</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Registration Form -->
+    <form id="studentForm" class="form-section mt-3">
+      <h5 class="mb-3">Student Registration</h5>
+      <div class="mb-3">
+        <label class="form-label">Full Name *</label>
+        <input type="text" class="form-control" id="studentName" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Student Code (if known)</label>
+        <input type="text" class="form-control" id="studentCode" placeholder="e.g. STU-2026-0341">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email *</label>
+        <input type="email" class="form-control" id="studentEmail" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone Number *</label>
+        <input type="tel" class="form-control" id="studentPhone" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Date of Birth *</label>
+        <input type="date" class="form-control" id="studentDob" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Gender *</label>
+        <select class="form-control" id="studentGender" required>
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password *</label>
+        <input type="password" class="form-control" id="studentPassword" required minlength="8">
+        <small class="text-muted">Minimum 8 characters</small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Confirm Password *</label>
+        <input type="password" class="form-control" id="studentConfirmPassword" required minlength="8">
+      </div>
+      <button type="submit" class="btn btn-portal-primary w-100">Create Student Account</button>
+      <button type="button" class="btn btn-outline-secondary w-100 mt-2" id="backToRoles">Back to Role Selection</button>
+    </form>
+
+    <!-- Guardian Registration Form -->
+    <form id="guardianForm" class="form-section mt-3">
+      <h5 class="mb-3">Guardian Registration</h5>
+      <div class="mb-3">
+        <label class="form-label">Full Name *</label>
+        <input type="text" class="form-control" id="guardianName" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" id="guardianEmail">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone Number *</label>
+        <input type="tel" class="form-control" id="guardianPhone" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Relation to Student *</label>
+        <select class="form-control" id="guardianRelation" required>
+          <option value="">Select Relation</option>
+          <option value="Father">Father</option>
+          <option value="Mother">Mother</option>
+          <option value="Guardian">Guardian</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Student Code (if known)</label>
+        <input type="text" class="form-control" id="guardianStudentCode" placeholder="e.g. STU-2026-0341">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password *</label>
+        <input type="password" class="form-control" id="guardianPassword" required minlength="8">
+        <small class="text-muted">Minimum 8 characters</small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Confirm Password *</label>
+        <input type="password" class="form-control" id="guardianConfirmPassword" required minlength="8">
+      </div>
+      <button type="submit" class="btn btn-portal-primary w-100">Create Guardian Account</button>
+      <button type="button" class="btn btn-outline-secondary w-100 mt-2" id="backToRolesGuardian">Back to Role Selection</button>
+    </form>
+
+    <!-- Teacher Registration Form -->
+    <form id="teacherForm" class="form-section mt-3">
+      <h5 class="mb-3">Teacher Registration</h5>
+      <div class="mb-3">
+        <label class="form-label">Full Name *</label>
+        <input type="text" class="form-control" id="teacherName" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email *</label>
+        <input type="email" class="form-control" id="teacherEmail" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone Number *</label>
+        <input type="tel" class="form-control" id="teacherPhone" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Staff Code (if known)</label>
+        <input type="text" class="form-control" id="teacherStaffCode" placeholder="e.g. STF-2026-0341">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Department *</label>
+        <select class="form-control" id="teacherDepartment" required>
+          <option value="">Select Department</option>
+          <option value="academic">Academic</option>
+          <option value="hifz">Hifz</option>
+          <option value="islamic_studies">Islamic Studies</option>
+          <option value="arabic">Arabic Studies</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password *</label>
+        <input type="password" class="form-control" id="teacherPassword" required minlength="8">
+        <small class="text-muted">Minimum 8 characters</small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Confirm Password *</label>
+        <input type="password" class="form-control" id="teacherConfirmPassword" required minlength="8">
+      </div>
+      <button type="submit" class="btn btn-portal-primary w-100">Create Teacher Account</button>
+      <button type="button" class="btn btn-outline-secondary w-100 mt-2" id="backToRolesTeacher">Back to Role Selection</button>
+    </form>
+
+    <!-- Staff Registration Form -->
+    <form id="staffForm" class="form-section mt-3">
+      <h5 class="mb-3">Staff Registration</h5>
+      <div class="mb-3">
+        <label class="form-label">Full Name *</label>
+        <input type="text" class="form-control" id="staffName" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email *</label>
+        <input type="email" class="form-control" id="staffEmail" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone Number *</label>
+        <input type="tel" class="form-control" id="staffPhone" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Staff Code (if known)</label>
+        <input type="text" class="form-control" id="staffStaffCode" placeholder="e.g. STF-2026-0341">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Designation *</label>
+        <select class="form-control" id="staffDesignation" required>
+          <option value="">Select Designation</option>
+          <option value="accountant">Accountant</option>
+          <option value="receptionist">Receptionist</option>
+          <option value="librarian">Librarian</option>
+          <option value="admin_staff">Admin Staff</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password *</label>
+        <input type="password" class="form-control" id="staffPassword" required minlength="8">
+        <small class="text-muted">Minimum 8 characters</small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Confirm Password *</label>
+        <input type="password" class="form-control" id="staffConfirmPassword" required minlength="8">
+      </div>
+      <button type="submit" class="btn btn-portal-primary w-100">Create Staff Account</button>
+      <button type="button" class="btn btn-outline-secondary w-100 mt-2" id="backToRolesStaff">Back to Role Selection</button>
+    </form>
+
+    <p class="text-center mt-4" style="font-size:12.5px;color:var(--muted);">
+      &copy; <span id="year"></span> Darul Aman Academy — Secure portal access only.
+    </p>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Role selection logic
+const roleCards = document.querySelectorAll('.role-card');
+const roleSelection = document.getElementById('roleSelection');
+const forms = {
+  student: document.getElementById('studentForm'),
+  guardian: document.getElementById('guardianForm'),
+  teacher: document.getElementById('teacherForm'),
+  staff: document.getElementById('staffForm')
+};
+
+roleCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const role = card.dataset.role;
+    roleSelection.style.display = 'none';
+    Object.values(forms).forEach(form => form.classList.remove('active'));
+    forms[role].classList.add('active');
+  });
+});
+
+// Back to role selection buttons
+document.getElementById('backToRoles').addEventListener('click', () => showRoleSelection());
+document.getElementById('backToRolesGuardian').addEventListener('click', () => showRoleSelection());
+document.getElementById('backToRolesTeacher').addEventListener('click', () => showRoleSelection());
+document.getElementById('backToRolesStaff').addEventListener('click', () => showRoleSelection());
+
+function showRoleSelection() {
+  roleSelection.style.display = 'block';
+  Object.values(forms).forEach(form => form.classList.remove('active'));
+}
+
+// Form validation and submission
+function validatePassword(password, confirmPassword) {
+  if (password !== confirmPassword) {
+    return 'Passwords do not match';
+  }
+  if (password.length < 8) {
+    return 'Password must be at least 8 characters';
+  }
+  return null;
+}
+
+function showError(message) {
+  const errorBox = document.getElementById('regError');
+  errorBox.textContent = message;
+  errorBox.classList.add('show');
+  setTimeout(() => errorBox.classList.remove('show'), 5000);
+}
+
+function showSuccess(message) {
+  const successBox = document.getElementById('regSuccess');
+  successBox.textContent = message;
+  successBox.classList.add('show');
+  setTimeout(() => successBox.classList.remove('show'), 5000);
+}
+
+// Student registration
+document.getElementById('studentForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const password = document.getElementById('studentPassword').value;
+  const confirmPassword = document.getElementById('studentConfirmPassword').value;
+  const validationError = validatePassword(password, confirmPassword);
+  
+  if (validationError) {
+    showError(validationError);
+    return;
+  }
+
+  const userData = {
+    role: 'student',
+    fullName: document.getElementById('studentName').value,
+    email: document.getElementById('studentEmail').value,
+    phone: document.getElementById('studentPhone').value,
+    password: password,
+    studentCode: document.getElementById('studentCode').value,
+    dateOfBirth: document.getElementById('studentDob').value,
+    gender: document.getElementById('studentGender').value
+  };
+
+  try {
+    const response = await window.DAA_API.post('/auth/register', userData);
+    showSuccess('Account created successfully! Redirecting to login...');
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 2000);
+  } catch (error) {
+    showError(error.message || 'Registration failed. Please try again.');
+  }
+});
+
+// Guardian registration
+document.getElementById('guardianForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const password = document.getElementById('guardianPassword').value;
+  const confirmPassword = document.getElementById('guardianConfirmPassword').value;
+  const validationError = validatePassword(password, confirmPassword);
+  
+  if (validationError) {
+    showError(validationError);
+    return;
+  }
+
+  const userData = {
+    role: 'guardian',
+    fullName: document.getElementById('guardianName').value,
+    email: document.getElementById('guardianEmail').value,
+    phone: document.getElementById('guardianPhone').value,
+    password: password,
+    relation: document.getElementById('guardianRelation').value,
+    studentCode: document.getElementById('guardianStudentCode').value
+  };
+
+  try {
+    const response = await window.DAA_API.post('/auth/register', userData);
+    showSuccess('Account created successfully! Redirecting to login...');
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 2000);
+  } catch (error) {
+    showError(error.message || 'Registration failed. Please try again.');
+  }
+});
+
+// Teacher registration
+document.getElementById('teacherForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const password = document.getElementById('teacherPassword').value;
+  const confirmPassword = document.getElementById('teacherConfirmPassword').value;
+  const validationError = validatePassword(password, confirmPassword);
+  
+  if (validationError) {
+    showError(validationError);
+    return;
+  }
+
+  const userData = {
+    role: 'teacher',
+    fullName: document.getElementById('teacherName').value,
+    email: document.getElementById('teacherEmail').value,
+    phone: document.getElementById('teacherPhone').value,
+    password: password,
+    staffCode: document.getElementById('teacherStaffCode').value,
+    department: document.getElementById('teacherDepartment').value
+  };
+
+  try {
+    const response = await window.DAA_API.post('/auth/register', userData);
+    showSuccess('Account created successfully! Redirecting to login...');
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 2000);
+  } catch (error) {
+    showError(error.message || 'Registration failed. Please try again.');
+  }
+});
+
+// Staff registration
+document.getElementById('staffForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const password = document.getElementById('staffPassword').value;
+  const confirmPassword = document.getElementById('staffConfirmPassword').value;
+  const validationError = validatePassword(password, confirmPassword);
+  
+  if (validationError) {
+    showError(validationError);
+    return;
+  }
+
+  const userData = {
+    role: 'staff',
+    fullName: document.getElementById('staffName').value,
+    email: document.getElementById('staffEmail').value,
+    phone: document.getElementById('staffPhone').value,
+    password: password,
+    staffCode: document.getElementById('staffStaffCode').value,
+    designation: document.getElementById('staffDesignation').value
+  };
+
+  try {
+    const response = await window.DAA_API.post('/auth/register', userData);
+    showSuccess('Account created successfully! Redirecting to login...');
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 2000);
+  } catch (error) {
+    showError(error.message || 'Registration failed. Please try again.');
+  }
+});
+</script>
+</body>
+</html>
