@@ -11,6 +11,7 @@
 ---------------------------------------------------------- */
 html {
     max-width: 100%;
+    overflow-x: hidden;
 }
 body {
     max-width: 100%;
@@ -115,6 +116,26 @@ table:not(.dtable) {
     }
     .row > [class*="col-"]:last-child {
         margin-bottom: 0;
+    }
+}
+
+/* ---------------------------------------------------------
+   7. GENERIC GRID AND OVERFLOW FIXES
+---------------------------------------------------------- */
+@media (max-width: 768px) {
+    .container, .container-fluid, .container-new {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        overflow-x: hidden;
+    }
+    .dept-cards, .mini-card-grid, .success-mini-grid, .recent-photos-grid, .parent-grid {
+        gap: 15px !important;
+        padding: 0 10px;
+    }
+}
+@media (max-width: 576px) {
+    .dept-cards, .mini-card-grid, .success-mini-grid, .recent-photos-grid, .parent-grid {
+        grid-template-columns: 1fr !important;
     }
 }
 
