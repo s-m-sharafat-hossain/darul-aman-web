@@ -13,8 +13,8 @@ const createSchema = z.object({
   description: z.string().max(1000).optional(),
   category: CATEGORY_ENUM.default('other'),
   eventDate: z.string().optional(),
-  isFeatured: z.coerce.boolean().optional(),
-  isPublished: z.coerce.boolean().optional(),
+  isFeatured: z.preprocess((v) => v === 'true' || v === true, z.boolean()).optional(),
+  isPublished: z.preprocess((v) => v === 'true' || v === true, z.boolean()).optional(),
   sortOrder: z.coerce.number().int().optional(),
 });
 

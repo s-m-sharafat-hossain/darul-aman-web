@@ -27,7 +27,7 @@ async function createGalleryItem(data, file, userId) {
       description: data.description || null,
       imageUrl: `/uploads/gallery/${file.filename}`, // file.filename is server-generated — see middleware/upload.js
       category: CATEGORIES.has(data.category) ? data.category : 'other',
-      eventDate: data.eventDate ? new Date(data.eventDate) : null,
+      eventDate: data.eventDate ? new Date(data.eventDate) : new Date(),
       isFeatured: Boolean(data.isFeatured),
       isPublished: Boolean(data.isPublished),
       sortOrder: Number.isInteger(data.sortOrder) ? data.sortOrder : 0,
@@ -45,7 +45,7 @@ async function updateGalleryItem(id, data, file, userId) {
   if (data.title !== undefined) updateData.title = data.title;
   if (data.description !== undefined) updateData.description = data.description || null;
   if (data.category !== undefined) updateData.category = CATEGORIES.has(data.category) ? data.category : 'other';
-  if (data.eventDate !== undefined) updateData.eventDate = data.eventDate ? new Date(data.eventDate) : null;
+  if (data.eventDate !== undefined) updateData.eventDate = data.eventDate ? new Date(data.eventDate) : new Date();
   if (data.isFeatured !== undefined) updateData.isFeatured = Boolean(data.isFeatured);
   if (data.isPublished !== undefined) updateData.isPublished = Boolean(data.isPublished);
   if (data.sortOrder !== undefined && Number.isInteger(data.sortOrder)) updateData.sortOrder = data.sortOrder;
