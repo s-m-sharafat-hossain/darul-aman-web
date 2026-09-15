@@ -88,7 +88,6 @@ async function seedRolesAndPermissions() {
     if (permissionRows.length) {
       await prisma.rolePermission.createMany({
         data: permissionRows.map((p) => ({ roleId: role.id, permissionId: p.id })),
-        skipDuplicates: true,
       });
     }
   }

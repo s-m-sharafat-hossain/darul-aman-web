@@ -33,7 +33,14 @@ app.set('trust proxy', 1); // needed for correct req.ip behind a reverse proxy (
 app.use(helmet());
 app.use(
   cors({
-    origin: (process.env.CORS_ORIGIN || '').split(',').filter(Boolean),
+    origin: (origin, callback) => {
+      const allowed = (process.env.CORS_ORIGIN || '').split(',').map(s => s.trim()).filter(Boolean);
+      // origin is undefined for same-origin requests; 'null' string for file:// protocol
+      if (!origin || allowed.includes(origin) || allowed.includes('null')) {
+        return callback(null, true);
+      }
+      callback(new Error('Not allowed by CORS'));
+    },
     credentials: true, // required so the httpOnly refresh-token cookie is sent
   })
 );

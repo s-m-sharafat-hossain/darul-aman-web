@@ -86,7 +86,7 @@ async function listAdmin({ category, search, isPublished, skip, limit }) {
   const where = {};
   if (category && CATEGORIES.has(category)) where.category = category;
   if (isPublished !== undefined) where.isPublished = isPublished;
-  if (search) where.title = { contains: search, mode: 'insensitive' };
+  if (search) where.title = { contains: search };
 
   const [items, total] = await Promise.all([
     prisma.galleryItem.findMany({

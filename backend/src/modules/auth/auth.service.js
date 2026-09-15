@@ -346,9 +346,9 @@ async function register(userData) {
           currentClassId: null, // Will be assigned by admin
           departmentId: department?.id || null,
           academicYearId: academicYear?.id || null,
-          rollNumber: '00',
+          rollNumber: null, // Will be assigned by admin
           admissionDate: new Date(),
-          status: 'pending',
+          status: 'pending', // Requires admin activation
           dateOfBirth: roleSpecificData.dateOfBirth ? new Date(roleSpecificData.dateOfBirth) : null,
         },
       });

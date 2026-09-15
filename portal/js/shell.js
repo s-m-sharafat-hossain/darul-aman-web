@@ -29,7 +29,7 @@
 
     const navHtml = navItems.map(item => `
       <li>
-        <a href="${item.href}" class="${item.key === activeKey ? 'active' : ''}">
+        <a href="${rootPrefix}${item.href}" class="${item.key === activeKey ? 'active' : ''}">
           <i class="${item.icon}"></i><span>${item.label}</span>
         </a>
       </li>`).join('');

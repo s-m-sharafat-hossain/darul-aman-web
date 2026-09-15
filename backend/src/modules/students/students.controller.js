@@ -31,9 +31,9 @@ const list = asyncHandler(async (req, res) => {
   if (req.query.status) filters.status = req.query.status;
   if (req.query.search) {
     filters.OR = [
-      { fullName: { contains: req.query.search, mode: 'insensitive' } },
-      { studentCode: { contains: req.query.search, mode: 'insensitive' } },
-      { rollNumber: { contains: req.query.search, mode: 'insensitive' } },
+      { fullName: { contains: req.query.search } },
+      { studentCode: { contains: req.query.search } },
+      { rollNumber: { contains: req.query.search } },
     ];
   }
 

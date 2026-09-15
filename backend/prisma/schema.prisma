@@ -112,7 +112,7 @@ model PasswordResetToken {
 }
 
 model LoginHistory {
-  id             BigInt   @id @default(autoincrement())
+  id             Int   @id @default(autoincrement())
   userId         String?  @map("user_id")
   attemptedCode  String?  @map("attempted_code")
   success        Boolean
@@ -199,6 +199,7 @@ model Class {
   admissionApplications AdmissionApplication[]
   attendanceRecords StudentAttendance[]
   notices Notice[]
+  examSchedules ExamSchedule[]
 
   @@unique([departmentId, name])
   @@map("classes")
@@ -231,6 +232,8 @@ model Subject {
 
   department Department? @relation(fields: [departmentId], references: [id])
   teacherAssignments TeacherClassAssignment[]
+  routines Routine[]
+  examSchedules ExamSchedule[]
 
   @@index([departmentId])
   @@map("subjects")
@@ -499,7 +502,7 @@ model AdmissionApplication {
   guardianEmail          String?   @map("guardian_email")
   address                String?
   previousSchool         String?   @map("previous_school")
-  documents              Json?
+  documents              String?
   status                 String    @default("submitted") // submitted, under_review, correction_requested, approved, rejected
   reviewedBy             String?   @map("reviewed_by")
   reviewNote             String?   @map("review_note")
@@ -528,7 +531,7 @@ model StudentAttendance {
   classId          Int      @map("class_id")
   sectionId        Int?     @map("section_id")
   academicYearId   Int      @map("academic_year_id")
-  attendanceDate   DateTime @map("attendance_date") @db.Date
+  attendanceDate   DateTime @map("attendance_date") 
   status           String   // present, absent, late, leave
   remarks          String?
   markedBy         String   @map("marked_by")
@@ -612,7 +615,7 @@ model QuizSubmission {
   id             String    @id @default(uuid())
   quizId         String    @map("quiz_id")
   studentId      String    @map("student_id")
-  answers        Json?
+  answers        String?
   obtainedMarks  Decimal?  @map("obtained_marks")
   submittedAt    DateTime? @map("submitted_at")
 
@@ -634,8 +637,8 @@ model Exam {
   name             String
   examType         String    @map("exam_type") // monthly, half_yearly, annual, model_test, hifz_exam, class_test
   departmentId     Int?      @map("department_id")
-  startDate        DateTime? @map("start_date") @db.Date
-  endDate          DateTime? @map("end_date") @db.Date
+  startDate        DateTime? @map("start_date") 
+  endDate          DateTime? @map("end_date") 
   resultPublished  Boolean   @default(false) @map("result_published")
   publishedAt      DateTime? @map("published_at")
   publishedBy      String?   @map("published_by")
@@ -653,15 +656,17 @@ model ExamSchedule {
   examId     String   @map("exam_id")
   classId    Int      @map("class_id")
   subjectId  Int      @map("subject_id")
-  examDate   DateTime @map("exam_date") @db.Date
+  examDate   DateTime @map("exam_date") 
   startTime  String?  @map("start_time")
   endTime    String?  @map("end_time")
   fullMarks  Decimal  @map("full_marks")
   passMarks  Decimal  @map("pass_marks")
   roomNumber String?  @map("room_number")
 
-  exam  Exam       @relation(fields: [examId], references: [id], onDelete: Cascade)
-  marks ExamMark[]
+  exam    Exam       @relation(fields: [examId], references: [id], onDelete: Cascade)
+  class   Class      @relation(fields: [classId], references: [id])
+  subject Subject    @relation(fields: [subjectId], references: [id])
+  marks   ExamMark[]
 
   @@map("exam_schedules")
 }
@@ -726,14 +731,14 @@ model HifzEnrollment {
   id                      String    @id @default(uuid())
   studentId               String    @unique @map("student_id")
   assignedTeacherId       String?   @map("assigned_teacher_id")
-  startDate               DateTime  @map("start_date") @db.Date
-  targetCompletionDate    DateTime? @map("target_completion_date") @db.Date
+  startDate               DateTime  @map("start_date") 
+  targetCompletionDate    DateTime? @map("target_completion_date") 
   currentParaId           Int?      @map("current_para_id")
   currentSurahId          Int?      @map("current_surah_id")
   parasCompleted          Int       @default(0) @map("paras_completed")
   completionPercent       Decimal   @default(0) @map("completion_percent")
   status                  String    @default("ongoing") // ongoing, completed, paused, discontinued
-  completedAt             DateTime? @map("completed_at") @db.Date
+  completedAt             DateTime? @map("completed_at") 
   createdAt               DateTime  @default(now()) @map("created_at")
   updatedAt               DateTime  @updatedAt @map("updated_at")
 
@@ -753,7 +758,7 @@ model HifzDailyEvaluation {
   id                  String   @id @default(uuid())
   hifzEnrollmentId    String   @map("hifz_enrollment_id")
   teacherId           String   @map("teacher_id")
-  evaluationDate       DateTime @map("evaluation_date") @db.Date
+  evaluationDate       DateTime @map("evaluation_date") 
   sabakParaId          Int?     @map("sabak_para_id")
   sabakSurahId         Int?     @map("sabak_surah_id")
   sabakFromAyat        Int?     @map("sabak_from_ayat")
@@ -783,7 +788,7 @@ model HifzParaCompletion {
   id                String   @id @default(uuid())
   hifzEnrollmentId  String   @map("hifz_enrollment_id")
   paraId            Int      @map("para_id")
-  completedDate     DateTime @map("completed_date") @db.Date
+  completedDate     DateTime @map("completed_date") 
   verifiedBy        String?  @map("verified_by")
 
   hifzEnrollment HifzEnrollment @relation(fields: [hifzEnrollmentId], references: [id], onDelete: Cascade)
@@ -795,7 +800,7 @@ model HifzParaCompletion {
 model HifzExam {
   id                String   @id @default(uuid())
   hifzEnrollmentId  String   @map("hifz_enrollment_id")
-  examDate          DateTime @map("exam_date") @db.Date
+  examDate          DateTime @map("exam_date") 
   examType          String   @default("periodic") @map("exam_type") // periodic, oral, completion_test
   paraRange         String?  @map("para_range")
   marksObtained     Decimal? @map("marks_obtained")
@@ -815,7 +820,7 @@ model HifzCertificate {
   id                  String   @id @default(uuid())
   hifzEnrollmentId    String   @unique @map("hifz_enrollment_id")
   certificateNumber   String   @unique @map("certificate_number")
-  issuedDate          DateTime @map("issued_date") @db.Date
+  issuedDate          DateTime @map("issued_date") 
   fileUrl             String?  @map("file_url")
   issuedBy            String?  @map("issued_by")
   createdAt           DateTime @default(now()) @map("created_at")
@@ -849,7 +854,7 @@ model StudentFeeInvoice {
   discountAmount      Decimal  @default(0) @map("discount_amount")
   scholarshipAmount   Decimal  @default(0) @map("scholarship_amount")
   amountPaid          Decimal  @default(0) @map("amount_paid")
-  dueDate             DateTime? @map("due_date") @db.Date
+  dueDate             DateTime? @map("due_date") 
   status              String   @default("unpaid") // unpaid, partially_paid, paid, waived, overdue
   createdAt           DateTime @default(now()) @map("created_at")
 
@@ -911,7 +916,7 @@ model Expense {
   expenseCategoryId   Int      @map("expense_category_id")
   description         String
   amount              Decimal
-  expenseDate         DateTime @map("expense_date") @db.Date
+  expenseDate         DateTime @map("expense_date") 
   paidTo              String?  @map("paid_to")
   recordedBy          String   @map("recorded_by")
   attachmentUrl        String?  @map("attachment_url")
@@ -934,8 +939,8 @@ model LeaveApplication {
   applicantType    String    @map("applicant_type") // student | staff
   studentId        String?   @map("student_id")
   staffId          String?   @map("staff_id")
-  fromDate         DateTime  @map("from_date") @db.Date
-  toDate           DateTime  @map("to_date") @db.Date
+  fromDate         DateTime  @map("from_date") 
+  toDate           DateTime  @map("to_date") 
   reason           String
   attachmentUrl    String?   @map("attachment_url")
   status           String    @default("pending")
@@ -1076,13 +1081,13 @@ model Notification {
 // ---------------------------------------------------------------------------
 
 model AuditLog {
-  id          BigInt   @id @default(autoincrement())
+  id          Int   @id @default(autoincrement())
   userId      String?  @map("user_id")
   action      String
   entityType  String?  @map("entity_type")
   entityId    String?  @map("entity_id")
-  beforeData  Json?    @map("before_data")
-  afterData   Json?    @map("after_data")
+  beforeData  String?    @map("before_data")
+  afterData   String?    @map("after_data")
   ipAddress   String?  @map("ip_address")
   userAgent   String?  @map("user_agent")
   createdAt   DateTime @default(now()) @map("created_at")
@@ -1099,7 +1104,7 @@ model ApprovalRequest {
   requestType  String    @map("request_type")
   entityType   String    @map("entity_type")
   entityId     String    @map("entity_id")
-  payload      Json?
+  payload      String?
   requestedBy  String    @map("requested_by")
   status       String    @default("pending")
   reviewedBy   String?   @map("reviewed_by")
@@ -1111,7 +1116,7 @@ model ApprovalRequest {
 }
 
 model FailedLoginAttempt {
-  id          BigInt   @id @default(autoincrement())
+  id          Int   @id @default(autoincrement())
   identifier  String
   ipAddress   String?  @map("ip_address")
   attemptedAt DateTime @default(now()) @map("attempted_at")

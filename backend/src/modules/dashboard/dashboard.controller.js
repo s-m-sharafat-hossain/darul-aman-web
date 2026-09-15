@@ -16,12 +16,14 @@ const studentDashboard = asyncHandler(async (req, res) => {
 
   const [todayAttendance, upcomingExams, invoices, notices, recentEval] = await Promise.all([
     prisma.studentAttendance.findUnique({ where: { studentId_attendanceDate: { studentId: student.id, attendanceDate: today } } }),
-    prisma.examSchedule.findMany({
-      where: { classId: student.currentClassId, examDate: { gte: today } },
-      orderBy: { examDate: 'asc' },
-      take: 5,
-      include: { exam: { select: { name: true } } },
-    }),
+    student.currentClassId != null
+      ? prisma.examSchedule.findMany({
+          where: { classId: student.currentClassId, examDate: { gte: today } },
+          orderBy: { examDate: 'asc' },
+          take: 5,
+          include: { exam: { select: { name: true } } },
+        })
+      : Promise.resolve([]),
     prisma.studentFeeInvoice.findMany({ where: { studentId: student.id, status: { in: ['unpaid', 'partially_paid', 'overdue'] } } }),
     prisma.notice.findMany({ where: { isPublished: true, audience: { in: ['all', 'students'] } }, orderBy: { publishedAt: 'desc' }, take: 5 }),
     student.hifzEnrollment

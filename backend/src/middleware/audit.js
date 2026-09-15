@@ -14,14 +14,14 @@ async function recordAudit({ req, action, entityType, entityId, before = null, a
   try {
     await prisma.auditLog.create({
       data: {
-        userId: req.user?.id || null,
+        userId: req?.user?.id || null,
         action,
         entityType,
         entityId: entityId ? String(entityId) : null,
-        beforeData: before ?? undefined,
-        afterData: after ?? undefined,
-        ipAddress: req.ip,
-        userAgent: req.headers['user-agent'] || null,
+        beforeData: before != null ? JSON.stringify(before) : null,
+        afterData: after != null ? JSON.stringify(after) : null,
+        ipAddress: req?.ip || null,
+        userAgent: req?.headers?.['user-agent'] || null,
       },
     });
   } catch (err) {

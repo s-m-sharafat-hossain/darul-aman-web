@@ -1,0 +1,4 @@
+- `[x]` Create `render.yaml` Blueprint file
+- `[x]` Update `portal/js/config.js` with deployment instructions
+- `[x]` Initialize Git repository (if not already done)
+- `[x]` Write step-by-step guide for the user on how to deploy

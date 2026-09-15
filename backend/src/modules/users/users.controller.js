@@ -22,9 +22,9 @@ const listUsers = asyncHandler(async (req, res) => {
   if (req.query.isActive !== undefined) where.isActive = req.query.isActive === 'true';
   if (req.query.search) {
     where.OR = [
-      { userCode: { contains: req.query.search, mode: 'insensitive' } },
-      { email: { contains: req.query.search, mode: 'insensitive' } },
-      { phone: { contains: req.query.search, mode: 'insensitive' } },
+      { userCode: { contains: req.query.search } },
+      { email: { contains: req.query.search } },
+      { phone: { contains: req.query.search } },
     ];
   }
 
@@ -155,8 +155,8 @@ const listAuditLogs = asyncHandler(async (req, res) => {
     }),
     prisma.auditLog.count({ where }),
   ]);
-  // BigInt ids from AuditLog need string coercion for JSON serialization.
-  const serialized = items.map((i) => ({ ...i, id: i.id.toString() }));
+  // ids from AuditLog need string coercion for JSON serialization.
+  const serialized = items.map((i) => ({ ...i, id: String(i.id) }));
   return ok(res, serialized, paginationMeta(total, pagination.page, pagination.limit));
 });
 

@@ -25,7 +25,6 @@
         "Student Fees": { bn: "শিক্ষার্থী ফি", en: "Student Fees", ar: "رسوم الطلاب" },
         "Residential": { bn: "আবাসিক", en: "Residential", ar: "سكني" },
         "Activities": { bn: "কার্যক্রম", en: "Activities", ar: "الأنشطة" },
-        "Rules": { bn: "নিয়মাবলী", en: "Rules", ar: "القواعد" },
         "Exam Result": { bn: "পরীক্ষার ফলাফল", en: "Exam Result", ar: "نتيجة الامتحان" },
         "Exam Result Check": { bn: "পরীক্ষার ফলাফল দেখুন", en: "Exam Result Check", ar: "التحقق من النتيجة" },
         "Result": { bn: "ফলাফল", en: "Result", ar: "النتيجة" },

@@ -167,8 +167,19 @@
   }
 
   function pathToLogin() {
-    // Portal pages live at /portal/<role>/xyz.html — login lives at /portal/login.html
-    const depth = location.pathname.split('/portal/')[1].split('/').length - 1;
+    // Handle both file:// and http:// protocols
+    const path = location.pathname;
+    // Count depth below the portal directory
+    const portalIdx = path.indexOf('/portal/');
+    if (portalIdx !== -1) {
+      const afterPortal = path.slice(portalIdx + '/portal/'.length);
+      const depth = afterPortal.split('/').length - 1;
+      return (depth > 0 ? '../'.repeat(depth) : '') + 'login.html';
+    }
+    // Fallback: go up until we find login.html
+    const parts = path.split('/').filter(Boolean);
+    // Find how deep in subdirectory we are (e.g. admin/dashboard.html = 1 deep)
+    const depth = parts.length - 1;
     return (depth > 0 ? '../'.repeat(depth) : '') + 'login.html';
   }
 
