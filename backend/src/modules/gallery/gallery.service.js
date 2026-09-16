@@ -21,13 +21,20 @@ function deleteImageFile(imageUrl) {
 async function createGalleryItem(data, file, userId) {
   if (!file) throw new ApiError(400, 'An image is required.');
 
+  let eventDate = new Date();
+  if (data.eventDate && data.eventDate !== 'null' && data.eventDate !== 'undefined') {
+    const parsed = new Date(data.eventDate);
+    if (Number.isNaN(parsed.valueOf())) throw new ApiError(422, 'Invalid event date format.');
+    eventDate = parsed;
+  }
+
   const item = await prisma.galleryItem.create({
     data: {
       title: data.title,
-      description: data.description || null,
+      description: data.description === 'null' || !data.description ? null : data.description,
       imageUrl: `/uploads/gallery/${file.filename}`, // file.filename is server-generated — see middleware/upload.js
       category: CATEGORIES.has(data.category) ? data.category : 'other',
-      eventDate: data.eventDate ? new Date(data.eventDate) : new Date(),
+      eventDate,
       isFeatured: Boolean(data.isFeatured),
       isPublished: Boolean(data.isPublished),
       sortOrder: Number.isInteger(data.sortOrder) ? data.sortOrder : 0,
@@ -43,9 +50,21 @@ async function updateGalleryItem(id, data, file, userId) {
 
   const updateData = { updatedBy: userId };
   if (data.title !== undefined) updateData.title = data.title;
-  if (data.description !== undefined) updateData.description = data.description || null;
+  if (data.description !== undefined) {
+    updateData.description = data.description === 'null' || !data.description ? null : data.description;
+  }
   if (data.category !== undefined) updateData.category = CATEGORIES.has(data.category) ? data.category : 'other';
-  if (data.eventDate !== undefined) updateData.eventDate = data.eventDate ? new Date(data.eventDate) : new Date();
+  
+  if (data.eventDate !== undefined) {
+    if (!data.eventDate || data.eventDate === 'null' || data.eventDate === 'undefined') {
+      updateData.eventDate = null;
+    } else {
+      const parsed = new Date(data.eventDate);
+      if (Number.isNaN(parsed.valueOf())) throw new ApiError(422, 'Invalid event date format.');
+      updateData.eventDate = parsed;
+    }
+  }
+
   if (data.isFeatured !== undefined) updateData.isFeatured = Boolean(data.isFeatured);
   if (data.isPublished !== undefined) updateData.isPublished = Boolean(data.isPublished);
   if (data.sortOrder !== undefined && Number.isInteger(data.sortOrder)) updateData.sortOrder = data.sortOrder;

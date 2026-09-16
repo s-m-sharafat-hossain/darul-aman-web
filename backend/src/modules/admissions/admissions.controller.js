@@ -84,7 +84,10 @@ const review = asyncHandler(async (req, res) => {
   const application = await prisma.admissionApplication.update({
     where: { id: req.params.id },
     data: { ...data, reviewedBy: req.user.id, reviewedAt: new Date() },
-  }).catch(() => { throw new ApiError(404, 'Application not found.'); });
+  }).catch((err) => {
+    if (err.code === 'P2025') throw new ApiError(404, 'Application not found.');
+    throw err;
+  });
 
   await recordAudit({ req, action: 'admission.reviewed', entityType: 'admission_application', entityId: req.params.id, after: data });
   return ok(res, application);

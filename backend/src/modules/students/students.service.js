@@ -361,8 +361,9 @@ async function archiveStudent(id) {
   const student = await prisma.student.update({
     where: { id },
     data: { status: 'archived' },
-  }).catch(() => {
-    throw new ApiError(404, 'Student not found.');
+  }).catch((err) => {
+    if (err.code === 'P2025') throw new ApiError(404, 'Student not found.');
+    throw err;
   });
   return student;
 }

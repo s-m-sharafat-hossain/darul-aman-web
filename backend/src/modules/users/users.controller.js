@@ -70,14 +70,20 @@ const disableUser = asyncHandler(async (req, res) => {
   const [user] = await prisma.$transaction([
     prisma.user.update({ where: { id: req.params.id }, data: { isActive: false } }),
     prisma.session.updateMany({ where: { userId: req.params.id, revokedAt: null }, data: { revokedAt: new Date() } }),
-  ]).catch(() => { throw new ApiError(404, 'User not found.'); });
+  ]).catch((err) => {
+    if (err.code === 'P2025') throw new ApiError(404, 'User not found.');
+    throw err;
+  });
   await recordAudit({ req, action: 'user.disabled', entityType: 'user', entityId: req.params.id });
   return ok(res, user);
 });
 
 const activateUser = asyncHandler(async (req, res) => {
   const user = await prisma.user.update({ where: { id: req.params.id }, data: { isActive: true } })
-    .catch(() => { throw new ApiError(404, 'User not found.'); });
+    .catch((err) => {
+      if (err.code === 'P2025') throw new ApiError(404, 'User not found.');
+      throw err;
+    });
   await recordAudit({ req, action: 'user.activated', entityType: 'user', entityId: req.params.id });
   return ok(res, user);
 });

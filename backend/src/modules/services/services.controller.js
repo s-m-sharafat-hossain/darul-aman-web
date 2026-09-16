@@ -67,7 +67,10 @@ const reviewLeave = asyncHandler(async (req, res) => {
   const application = await prisma.leaveApplication.update({
     where: { id: req.params.id },
     data: { ...data, reviewedBy: req.user.id, reviewedAt: new Date() },
-  }).catch(() => { throw new ApiError(404, 'Leave application not found.'); });
+  }).catch((err) => {
+    if (err.code === 'P2025') throw new ApiError(404, 'Leave application not found.');
+    throw err;
+  });
 
   await recordAudit({ req, action: 'leave.reviewed', entityType: 'leave_application', entityId: req.params.id, after: data });
   return ok(res, application);
@@ -138,7 +141,10 @@ const resolveRequest = asyncHandler(async (req, res) => {
   const request = await prisma.serviceRequest.update({
     where: { id: req.params.id },
     data: { ...data, handledBy: req.user.id, resolvedAt: new Date() },
-  }).catch(() => { throw new ApiError(404, 'Service request not found.'); });
+  }).catch((err) => {
+    if (err.code === 'P2025') throw new ApiError(404, 'Service request not found.');
+    throw err;
+  });
 
   await recordAudit({ req, action: 'service_request.resolved', entityType: 'service_request', entityId: req.params.id, after: data });
   return ok(res, request);
