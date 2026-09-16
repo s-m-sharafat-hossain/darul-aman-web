@@ -184,7 +184,8 @@ async function createStudent(data, actingUser) {
  * Any placement fields an admin-tier caller DOES change here are still
  * cross-validated as a real department/class/section chain.
  */
-async function updateStudent(id, data, actingRole) {
+async function updateStudent(id, rawData, actingRole) {
+  const { guardians, ...data } = rawData;
   const disallowed = Object.keys(data).filter((k) => RESTRICTED_STUDENT_FIELDS.has(k));
   if (disallowed.length && actingRole === 'student') {
     throw new ApiError(403, `Students cannot directly edit: ${disallowed.join(', ')}. Submit a profile update request instead.`);
@@ -214,8 +215,11 @@ async function updateStudent(id, data, actingRole) {
     }
   }
 
-  const student = await prisma.student.update({ where: { id }, data }).catch(() => {
-    throw new ApiError(404, 'Student not found.');
+  const student = await prisma.student.update({ where: { id }, data }).catch((error) => {
+    if (error.code === 'P2025') {
+      throw new ApiError(404, 'Student not found.');
+    }
+    throw error;
   });
   return student;
 }
