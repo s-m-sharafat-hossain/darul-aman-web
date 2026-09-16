@@ -8,11 +8,15 @@ const logger = require('../utils/logger');
  */
 // eslint-disable-next-line no-unused-vars
 function errorHandler(err, req, res, next) {
-  logger.error(`[error] ${req.method} ${req.originalUrl}`, {
-    message: err.message,
-    stack: err.stack,
-    statusCode: err.statusCode,
-  });
+  const statusCode = err.statusCode || (err instanceof ZodError ? 422 : 500);
+  const logData = { message: err.message, statusCode };
+  
+  if (statusCode >= 500) {
+    logData.stack = err.stack;
+    logger.error(`[error] ${req.method} ${req.originalUrl}`, logData);
+  } else {
+    logger.warn(`[client-error] ${req.method} ${req.originalUrl}`, logData);
+  }
 
   if (err instanceof ZodError) {
     return res.status(422).json({

@@ -198,12 +198,17 @@ async function refresh({ refreshToken }) {
 }
 
 async function logout({ refreshToken }) {
-  if (!refreshToken) return;
+  if (!refreshToken) return null;
   try {
     const payload = verifyRefreshToken(refreshToken);
-    await prisma.session.update({ where: { id: payload.sid }, data: { revokedAt: new Date() } }).catch(() => {});
+    const session = await prisma.session.update({
+      where: { id: payload.sid },
+      data: { revokedAt: new Date() }
+    }).catch(() => null);
+    return session ? session.userId : null;
   } catch {
     // token already invalid/expired — nothing to revoke
+    return null;
   }
 }
 

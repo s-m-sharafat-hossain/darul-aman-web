@@ -65,11 +65,11 @@ const refreshToken = asyncHandler(async (req, res) => {
 
 const logout = asyncHandler(async (req, res) => {
   const token = req.cookies?.[REFRESH_COOKIE_NAME];
-  await authService.logout({ refreshToken: token });
+  const userId = await authService.logout({ refreshToken: token });
   res.clearCookie(REFRESH_COOKIE_NAME, { path: '/api/auth' });
 
-  if (req.user) {
-    await recordAudit({ req, action: 'auth.logout', entityType: 'user', entityId: req.user.id });
+  if (userId) {
+    await recordAudit({ req, action: 'auth.logout', entityType: 'user', entityId: userId });
   }
   return ok(res, { message: 'Logged out successfully.' });
 });

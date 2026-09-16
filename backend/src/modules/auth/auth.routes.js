@@ -13,7 +13,7 @@ router.post('/forgot-password', authLimiter, controller.forgotPassword);
 router.post('/reset-password', authLimiter, controller.resetPassword);
 
 // Authenticated
-router.post('/logout', requireAuth, controller.logout);
+router.post('/logout', controller.logout);
 router.get('/me', requireAuth, controller.me);
 router.post('/change-password', requireAuth, controller.changePassword);
 
