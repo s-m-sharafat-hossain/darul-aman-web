@@ -42,6 +42,21 @@ function errorHandler(err, req, res, next) {
     });
   }
 
+  // Catch Prisma validation errors (e.g. Invalid Date, wrong data types)
+  if (err.name === 'PrismaClientValidationError') {
+    return res.status(400).json({
+      success: false,
+      error: { message: 'Database validation failed. Please check your payload structure and types.', details: err.message },
+    });
+  }
+  
+  if (err.name === 'PrismaClientKnownRequestError') {
+    return res.status(400).json({
+      success: false,
+      error: { message: 'Database request error.', details: err.message, code: err.code },
+    });
+  }
+
   const statusCode = err.statusCode || 500;
   return res.status(statusCode).json({
     success: false,
